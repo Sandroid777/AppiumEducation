@@ -1,17 +1,11 @@
-import io.appium.java_client.AndroidKeyCode;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-
-import org.apache.commons.logging.Log;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -41,10 +35,9 @@ public class T001_BrowserStarter {
 
     @After
     public void tearDown() throws Exception{
-        //какоментил так как тут driver уже null
+        //Во всех примерах эта строка есть. Но я закоментил, когда сюда приходим driver уже null.
         //driver.quit();
     }
-
     @Test
     public void testPlusOperation() throws Exception {
 
