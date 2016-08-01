@@ -2,6 +2,8 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -29,23 +31,39 @@ public class T001_BrowserStarter {
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.yandex.browser");
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, ".YandexBrowserActivity");
 
-        //Иннициирую драйвер (url appium server + настройки).
+        //Инициирую драйвер (url appium server + настройки).
         driver = new AppiumDriver(new URL(TESTOBJECT), capabilities);
     }
 
     @After
     public void tearDown() throws Exception{
-        //Во всех примерах эта строка есть. Но я закоментил, когда сюда приходим driver уже null.
-        //driver.quit();
+        //убиваю драйвер
+        driver.quit();
     }
     @Test
-    public void testPlusOperation() throws Exception {
+    public void abroMainTest() throws Exception {
 
+        //пауза чтобы успело отобразится экран приветствия
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //закрываю экран приветствия
+        WebElement close_tutorial = driver.findElement(By.id("activity_tutorial_close_button"));
+        close_tutorial.click();
+
+        //тап в омнибокс
         WebElement arrow = driver.findElement(By.id("bro_sentry_bar_fake_text"));
         arrow.click();
 
-        WebElement arrowEdit = driver.findElement(By.id("bro_sentry_bar_input_edittext"));
-        arrowEdit.sendKeys("Hello world!!!");
+        //ввожу cat в строку поиска
+        WebElement arrowEdit = driver.findElementById("bro_sentry_bar_input_edittext");
+        arrowEdit.sendKeys("cat");
+
+        //нахожу 3 строку в саджесте
+        WebElement suggestN3 = driver.findElement(By.xpath("//*[@class='android.widget.RelativeLayout' and @index = '2']"));
+        suggestN3.click();
+
+        //С ожиданием трудности!!!! не нашел пока как реализовать.
+
     }
 }
 
