@@ -2,8 +2,6 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,9 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import static org.junit.Assert.assertEquals;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class T001_BrowserStarter {
 
@@ -43,12 +40,17 @@ public class T001_BrowserStarter {
     @Test
     public void abroMainTest() throws Exception {
 
-        //пауза чтобы успело отобразится экран приветствия
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //создаю объект WebDriverWait с его помощью сделаю ожидание событий.
+        WebDriverWait waitDriver = new WebDriverWait(driver, 10);
 
-        //закрываю экран приветствия
-        WebElement close_tutorial = driver.findElement(By.id("activity_tutorial_close_button"));
-        close_tutorial.click();
+        try {
+            //Если не нахожу омнибокс значит появилось окно приветствия.
+            waitDriver.until(ExpectedConditions.elementToBeClickable(By.id("bro_sentry_bar_fake")));
+        }
+        catch (Exception s){
+            //закрываю экран приветствия если появился
+            waitDriver.until(ExpectedConditions.elementToBeClickable(By.id("activity_tutorial_close_button"))).click();
+        }
 
         //тап в омнибокс
         WebElement arrow = driver.findElement(By.id("bro_sentry_bar_fake_text"));
@@ -62,7 +64,12 @@ public class T001_BrowserStarter {
         WebElement suggestN3 = driver.findElement(By.xpath("//*[@class='android.widget.RelativeLayout' and @index = '2']"));
         suggestN3.click();
 
-        //С ожиданием трудности!!!! не нашел пока как реализовать.
+        //Статус загрузки страницы буду проверять по кнопке "обновить страницу" в омнибоксе
+        //жду Stop. загрузка началась
+        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Stop']")));
+        //жду Reload загрузка закончена
+        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Reload']")));
+
 
     }
 }
