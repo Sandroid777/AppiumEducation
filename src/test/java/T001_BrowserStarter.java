@@ -2,15 +2,27 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import java.net.URL;
+import java.security.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.security.jca.GetInstance;
+
+import static java.text.DateFormat.getInstance;
+import static junit.framework.TestCase.assertTrue;
 
 public class T001_BrowserStarter {
 
@@ -64,13 +76,54 @@ public class T001_BrowserStarter {
         WebElement suggestN3 = driver.findElement(By.xpath("//*[@class='android.widget.RelativeLayout' and @index = '2']"));
         suggestN3.click();
 
+        //Опредиление загрузки страницы по логам
+
+        Date starttime = new Date();    //фиксирую время тапа
+        List<LogEntry> logEntryList;    //массив для хранения логов
+        boolean pageload = false;       //индикатор загрузки страницы
+
+        //проверяю логи на наличие события "url opened"
+        //Проверять буду 3 раза с интервалом 5 секунд
+        for(int i = 0; i < 3; i++) {
+
+            //Жду 5 секунд
+            ControlWait(5);
+
+            //беру у драйвера логи
+            logEntryList = (List<LogEntry>) driver.manage().logs().get("logcat").filter(Level.ALL);
+
+            //Создаю обьект LogParser передаю в него массив логов и время тапа
+            LogParser lp = new LogParser(logEntryList, starttime);
+            //Запускаю поиск. если находим "url opened" то выходим
+            if(lp.FindStringInLog("url opened")){
+                i=3;
+                pageload =true;
+            }
+            else
+                i++;
+        }
+        //Проверка
+        assertTrue(pageload);
+
+        /*Старый вариант
         //Статус загрузки страницы буду проверять по кнопке "обновить страницу" в омнибоксе
         //жду Stop. загрузка началась
         waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Stop']")));
         //жду Reload загрузка закончена
         waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Reload']")));
+        */
+    }
 
-
+    //Контролируемое ожидание
+    //Принимает int, сколько секунд будем ждать
+    private void ControlWait(int i){
+        WebDriverWait wd = new WebDriverWait(driver, i);
+        try {
+            wd.until(ExpectedConditions.elementToBeClickable(By.id("NONEXISTENT ELEMENT")));
+        }
+        catch (Exception s){
+            //Ничего не делаем
+        }
     }
 }
 
