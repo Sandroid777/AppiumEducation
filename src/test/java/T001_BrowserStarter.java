@@ -1,28 +1,27 @@
+        import io.appium.java_client.AppiumDriver;
+        import io.appium.java_client.remote.MobileCapabilityType;
+        import java.net.URL;
+        import java.security.Timestamp;
+        import java.util.Calendar;
+        import java.util.Date;
+        import java.util.List;
+        import java.util.concurrent.TimeUnit;
+        import java.util.logging.Level;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import java.net.URL;
-import java.security.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
+        import org.junit.After;
+        import org.junit.Assert;
+        import org.junit.Before;
+        import org.junit.Test;
+        import org.openqa.selenium.By;
+        import org.openqa.selenium.WebElement;
+        import org.openqa.selenium.logging.LogEntry;
+        import org.openqa.selenium.remote.DesiredCapabilities;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.openqa.selenium.support.ui.WebDriverWait;
+        import sun.security.jca.GetInstance;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.security.jca.GetInstance;
-
-import static java.text.DateFormat.getInstance;
-import static junit.framework.TestCase.assertTrue;
+        import static java.text.DateFormat.getInstance;
+        import static junit.framework.TestCase.assertTrue;
 
 public class T001_BrowserStarter {
 
@@ -87,7 +86,7 @@ public class T001_BrowserStarter {
         for(int i = 0; i < 3; i++) {
 
             //Жду 5 секунд
-            ControlWait(5);
+            TestHelper.ControlWait(driver, 5);
 
             //беру у драйвера логи
             logEntryList = (List<LogEntry>) driver.manage().logs().get("logcat").filter(Level.ALL);
@@ -113,17 +112,6 @@ public class T001_BrowserStarter {
         waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Reload']")));
         */
     }
-
-    //Контролируемое ожидание
-    //Принимает int, сколько секунд будем ждать
-    private void ControlWait(int i){
-        WebDriverWait wd = new WebDriverWait(driver, i);
-        try {
-            wd.until(ExpectedConditions.elementToBeClickable(By.id("NONEXISTENT ELEMENT")));
-        }
-        catch (Exception s){
-            //Ничего не делаем
-        }
-    }
 }
+
 
