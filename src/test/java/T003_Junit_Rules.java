@@ -1,6 +1,8 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+
 import org.apache.commons.io.FileUtils;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -8,7 +10,9 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
+
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,8 +21,9 @@ import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
 
-import static junit.framework.TestCase.assertTrue;
 
 public class T003_Junit_Rules {
 
@@ -26,7 +31,6 @@ public class T003_Junit_Rules {
     private static final String screenshotPath = "C:\\AppiumProject\\ErrorScreenshot\\";
     private AppiumDriver driver;
     private MainPageObject mainPageObject;
-
 
     @Before
     public void setup() throws Exception {
@@ -69,15 +73,13 @@ public class T003_Junit_Rules {
             catch (Exception ioE){
                 ioE.printStackTrace();
             }
-
             //убиваю драйвер
             driver.quit();
         }
     };
 
-
     @Test
-    public void closeHelloTapOmni() throws Exception {
+    public void appiumTest() throws Exception {
 
         WebDriverWait waitDriver = new WebDriverWait(driver, 10);
 
@@ -89,14 +91,25 @@ public class T003_Junit_Rules {
         }
 
         mainPageObject.sentry_bar.click();
-    }
-
-    @Test
-    public void sendTextSuggestClick() throws Exception {
-
-        closeHelloTapOmni();
 
         mainPageObject.omni_edittext.sendKeys("cat");
+
         mainPageObject.suggestN3.click();
+
+        Date startTime = new Date();    //фиксирую время тапа
+        Date finalFindTime = new Date(startTime.getTime() + 30000); //время ожидания 30сек от тапа
+        List<LogEntry> logEntryList2;    //массив для хранения логов
+
+        //проверяю логи на наличие события "url opened"
+        while(finalFindTime.getTime() > System.currentTimeMillis()){
+
+            List<LogEntry> logEntryList = driver.manage().logs().get("logcat").filter(Level.ALL);
+            LogParser lp = new LogParser(logEntryList, startTime);
+
+            //Запускаю поиск. если находим "url opened" то выходим
+            if(lp.FindStringInLog("url opened")){break;}
+
+            Thread.sleep(1000);
+        };
     }
 }
