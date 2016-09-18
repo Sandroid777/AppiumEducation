@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 
-public class T003_Junit_Rules {
+public class T003_Junit_RulesTestOLD {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private static final String screenshotPath = "C:\\AppiumProject\\ErrorScreenshot\\";

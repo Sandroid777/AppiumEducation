@@ -15,7 +15,7 @@ import java.util.logging.Level;
 
 import static junit.framework.TestCase.assertTrue;
 
-public class T002_BrowserStarter_PageObject {
+public class T002_BrowserStarter_PageObjectTestOLD {
 
         //URL appium сервера
         private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";

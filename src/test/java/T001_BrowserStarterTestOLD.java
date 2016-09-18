@@ -23,7 +23,7 @@
         import static java.text.DateFormat.getInstance;
         import static junit.framework.TestCase.assertTrue;
 
-public class T001_BrowserStarter {
+public class T001_BrowserStarterTestOLD {
 
     //URL appium сервера
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
