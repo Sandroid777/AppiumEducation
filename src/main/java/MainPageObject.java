@@ -4,6 +4,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 class MainPageObject {
 
     public MainPageObject(AppiumDriver driver){
@@ -22,11 +24,12 @@ class MainPageObject {
     @AndroidFindBy(id = "bro_sentry_bar_input_edittext")
     public WebElement omni_edittext;
 
-    //3 элемент саджеста
-    @AndroidFindBy(xpath = "//*[@class='android.widget.RelativeLayout' and @index = '2']")
+    //устаревший вариант для работы старых тестов
+    @AndroidFindBy(xpath = "//*[@class='android.widget.ListView' and @index = '2']")
     public WebElement suggestN3;
 
-
-
+    //саджест
+    @AndroidFindBy(id = "bro_common_omnibox_text_layout")
+    public List<WebElement> suggestList;
 
 }
