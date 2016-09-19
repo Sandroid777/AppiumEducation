@@ -12,9 +12,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 
 import java.net.URL;
 
-@Title("Урок № 4 - Steps и Allure репорт")
+@Title("РЈСЂРѕРє 4 - Steps Рё Allure СЂРµРїРѕСЂС‚")
 public class T004_StepsTest {
-
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
@@ -36,19 +35,19 @@ public class T004_StepsTest {
     @Rule
     public TestRule watchman = new TestWatcher() {
 
-    @Override
-    protected void finished(Description description) {
-        driver.quit();
-    }
+        @Override
+        protected void finished(Description description) {
+            driver.quit();
+        }
 
-    @Override
-    protected void failed(Throwable e, Description description) {
-        steps.makeScreenshot();
-        driver.quit();
-    }
+        @Override
+        protected void failed(Throwable e, Description description) {
+            steps.makeScreenshot();
+            driver.quit();
+        }
     };
 
-    @Title("Ищем котиков в первом саджесте")
+    @Title("РС€РµРј РєРѕС‚РёРєРѕРІ РІ СЃР°РґР¶РµСЃС‚Рµ в„–1")
     @Test
     public void appiumTestSuggest1() throws Exception {
 
@@ -59,7 +58,7 @@ public class T004_StepsTest {
         steps.waitLoadPage(30);
     }
 
-    @Title("Отладка: Ищем котиков и в конце падаем")
+    @Title("РћС‚Р»Р°РґРєР°: РС€РµРј РєРѕС‚РёРєРѕРІ Рё РїР°РґР°РµРј")
     @Test
     public void appiumTestSuggest2() throws Exception {
 
@@ -71,7 +70,7 @@ public class T004_StepsTest {
         steps.failedDebugStep();
     }
 
-    @Title("Ищем котиков в третьем саджесте")
+    @Title("РС€РµРј РєРѕС‚РёРєРѕРІ РІ СЃР°РґР¶РµСЃС‚Рµ в„–3")
     @Test
     public void appiumTestSuggest3() throws Exception {
 
