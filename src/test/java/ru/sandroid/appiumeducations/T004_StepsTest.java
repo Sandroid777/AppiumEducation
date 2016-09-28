@@ -1,3 +1,5 @@
+package ru.sandroid.appiumeducations;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Before;

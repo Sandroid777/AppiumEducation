@@ -1,3 +1,5 @@
+package ru.sandroid.appiumeducations;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -15,6 +17,17 @@ class MainPageObject {
     //Омнибокс
     @AndroidFindBy(id = "bro_sentry_bar_fake")
     public WebElement sentry_bar;
+
+    //Омнибокс на вэбвкладке
+    @AndroidFindBy(id = "bro_omnibar_address_title")
+    public WebElement omniboxWebPaje;
+
+    @AndroidFindBy(id = "bro_sentry_bar_input_button")
+    public WebElement omniboxButton;
+
+    //History suggest
+    @AndroidFindBy(id = "bro_suggest_history")
+    public WebElement historySuggest;
 
     //Кнопка закрытия туториала
     @AndroidFindBy(id = "activity_tutorial_close_button")

@@ -1,3 +1,5 @@
+package ru.sandroid.appiumeducations;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
@@ -16,6 +18,8 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.sandroid.appiumeducations.LogParser;
+import ru.sandroid.appiumeducations.MainPageObject;
 
 import java.io.File;
 import java.net.URL;
@@ -23,7 +27,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
-
 
 public class T003_Junit_RulesTestOLD {
 

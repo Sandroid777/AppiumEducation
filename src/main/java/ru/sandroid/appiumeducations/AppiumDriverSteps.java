@@ -1,5 +1,11 @@
+package ru.sandroid.appiumeducations;
+
+import static ru.sandroid.appiumeducations.MyMatchers.*;
+
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,10 +13,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
 
 class AppiumDriverSteps {
@@ -42,6 +56,22 @@ class AppiumDriverSteps {
     public void clickToOmnibox() {
         mainPageObject.sentry_bar.click();
     }
+
+    @Step
+    public void clickOmniboxOnWebPage() {
+        mainPageObject.omniboxWebPaje.click();
+    }
+
+    @Step
+    public void clickOmniboxButton() {
+        mainPageObject.omniboxButton.click();
+    }
+
+    @Step
+    public void clickHistorySuggest() {
+        mainPageObject.historySuggest.click();
+    }
+
 
     @Step
     public void sendKeys(String string) {
@@ -96,6 +126,37 @@ class AppiumDriverSteps {
         assertTrue(loadPage);
     }
 
+    @Step
+    public void checkSuggestSizeOver(int i) {
+
+        assertThat(mainPageObject.suggestList, hasSize(greaterThan(i)));
+
+    }
+
+    @Step
+    public void checkHistorySuggestTextColor() {
+
+        //Make Screenshot
+        File screanshot  = driver.getScreenshotAs(OutputType.FILE);
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(screanshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Nav
+        Point navLocation = mainPageObject.historySuggest.findElement(By.id("bro_common_omnibox_text")).getLocation();
+        TestedItem nav = new TestedItem(bufferedImage, navLocation);
+
+        //Title
+        Point titleLocation = mainPageObject.historySuggest.findElement(By.id("bro_common_omnibox_wizard_text")).getLocation();
+        TestedItem title = new TestedItem(bufferedImage, titleLocation);
+
+        assertThat(nav, textHasColor(Color.BLUE) );
+        assertThat(title, textHasColor(Color.GRAY));
+    }
+
     //Степ для отладки
     @Step
     public void failedDebugStep() {
@@ -106,4 +167,8 @@ class AppiumDriverSteps {
     public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
+
 }
+
+

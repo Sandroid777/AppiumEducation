@@ -1,3 +1,5 @@
+package ru.sandroid.appiumeducations;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.After;
@@ -7,6 +9,9 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.sandroid.appiumeducations.LogParser;
+import ru.sandroid.appiumeducations.MainPageObject;
+import ru.sandroid.appiumeducations.TestHelper;
 
 import java.net.URL;
 import java.util.Date;

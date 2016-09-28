@@ -1,3 +1,4 @@
+package ru.sandroid.appiumeducations;
 
 import org.openqa.selenium.logging.LogEntry;
 import java.util.Date;

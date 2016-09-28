@@ -1,27 +1,25 @@
-        import io.appium.java_client.AppiumDriver;
-        import io.appium.java_client.remote.MobileCapabilityType;
-        import java.net.URL;
-        import java.security.Timestamp;
-        import java.util.Calendar;
-        import java.util.Date;
-        import java.util.List;
-        import java.util.concurrent.TimeUnit;
-        import java.util.logging.Level;
+package ru.sandroid.appiumeducations;
 
-        import org.junit.After;
-        import org.junit.Assert;
-        import org.junit.Before;
-        import org.junit.Test;
-        import org.openqa.selenium.By;
-        import org.openqa.selenium.WebElement;
-        import org.openqa.selenium.logging.LogEntry;
-        import org.openqa.selenium.remote.DesiredCapabilities;
-        import org.openqa.selenium.support.ui.ExpectedConditions;
-        import org.openqa.selenium.support.ui.WebDriverWait;
-        import sun.security.jca.GetInstance;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import java.net.URL;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
 
-        import static java.text.DateFormat.getInstance;
-        import static junit.framework.TestCase.assertTrue;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.sandroid.appiumeducations.LogParser;
+import ru.sandroid.appiumeducations.TestHelper;
+
+import static junit.framework.TestCase.assertTrue;
 
 public class T001_BrowserStarterTestOLD {
 
