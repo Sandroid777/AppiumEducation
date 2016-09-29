@@ -1,5 +1,6 @@
 package ru.sandroid.appiumeducations;
 
+import static org.hamcrest.Matchers.both;
 import static ru.sandroid.appiumeducations.MyMatchers.*;
 
 import io.appium.java_client.AppiumDriver;
@@ -26,6 +27,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
+
+
 
 class AppiumDriverSteps {
 
@@ -134,28 +137,23 @@ class AppiumDriverSteps {
     }
 
     @Step
-    public void checkHistorySuggestTextColor() {
+    public void checkHistorySuggest(){
 
         //Make Screenshot
-        File screanshot  = driver.getScreenshotAs(OutputType.FILE);
+        File screanShot  = driver.getScreenshotAs(OutputType.FILE);
         BufferedImage bufferedImage = null;
         try {
-            bufferedImage = ImageIO.read(screanshot);
+            bufferedImage = ImageIO.read(screanShot);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //Nav
-        Point navLocation = mainPageObject.historySuggest.findElement(By.id("bro_common_omnibox_text")).getLocation();
-        TestedItem nav = new TestedItem(bufferedImage, navLocation);
+        SuggestItem suggestItem = new SuggestItem(mainPageObject.historySuggest, bufferedImage);
 
-        //Title
-        Point titleLocation = mainPageObject.historySuggest.findElement(By.id("bro_common_omnibox_wizard_text")).getLocation();
-        TestedItem title = new TestedItem(bufferedImage, titleLocation);
+        assertThat(suggestItem, both(navHasColor(Color.BLUE)).and(titleHasColor(Color.GRAY)));
 
-        assertThat(nav, textHasColor(Color.BLUE) );
-        assertThat(title, textHasColor(Color.GRAY));
     }
+
 
     //Степ для отладки
     @Step
