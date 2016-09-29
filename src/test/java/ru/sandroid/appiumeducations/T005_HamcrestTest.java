@@ -55,16 +55,23 @@ public class T005_HamcrestTest {
         steps.clickToOmnibox();
         steps.sendKeys("cat.com");
         steps.checkSuggestSizeOver(1);
+    }
+
+    @Title("Проверка цвета в историческом саджесте")
+    @Test
+    public void chackHisorySuggestTextColor() throws Exception {
+
+        steps.closeTutorial();
+        steps.clickToOmnibox();
+        steps.sendKeys("cat.com");
+        steps.checkSuggestSizeOver(1);
         steps.suggestClick(1);
 
         steps.clickOmniboxOnWebPage();
         steps.clickOmniboxButton();
         steps.sendKeys("cat.com");
         steps.checkSuggestSizeOver(1);
-        steps.checkHistorySuggestTextColor();
-        //steps.clickHistorySuggest();
-
-        //steps.findBlueTextInSuggest(4);
+        steps.checkHistorySuggest();
     }
 
 
