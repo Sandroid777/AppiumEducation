@@ -4,10 +4,9 @@ import static org.hamcrest.Matchers.both;
 import static ru.sandroid.appiumeducations.MyMatchers.*;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +18,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -137,7 +137,7 @@ class AppiumDriverSteps {
     }
 
     @Step
-    public void checkHistorySuggest(){
+    public void checkColorInHistorySuggest(WebElement webElement, Color findColor1, Color findColor2 ){
 
         //Make Screenshot
         File screanShot  = driver.getScreenshotAs(OutputType.FILE);
@@ -148,12 +148,16 @@ class AppiumDriverSteps {
             e.printStackTrace();
         }
 
-        SuggestItem suggestItem = new SuggestItem(mainPageObject.historySuggest, bufferedImage);
+        //Make subimage WebElement
+        Point location = webElement.getLocation();
+        int width = webElement.getSize().getWidth();
+        int height = webElement.getSize().getHeight();
 
-        assertThat(suggestItem, both(navHasColor(Color.BLUE)).and(titleHasColor(Color.GRAY)));
+        BufferedImage elementImage = bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
+
+        assertThat(elementImage, both(hasColor(findColor1)).and(hasColor(findColor2)));
 
     }
-
 
     //Степ для отладки
     @Step

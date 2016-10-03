@@ -22,4 +22,21 @@ class TestHelper {
             //Ничего не делаем
         }
     }
+
+    public static Color findWebElementColor(BufferedImage bufferedImage, Color color){
+
+        int width = bufferedImage.getWidth();
+        int height = bufferedImage.getHeight();
+
+        for(int y= 0; y<height; y++ ){
+            for(int x= 0; x<width; x++){
+
+                Color takenColor = new Color(bufferedImage.getRGB(x, y));
+                if(takenColor.getRGB() == color.getRGB()) {
+                    return takenColor;
+                }
+            }
+        }
+        return  new Color(0, 0, 0);
+    }
 }

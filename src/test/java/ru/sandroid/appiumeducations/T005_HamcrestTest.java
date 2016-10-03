@@ -11,6 +11,7 @@ import org.junit.runner.Description;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.yandex.qatools.allure.annotations.Title;
 
+import java.awt.*;
 import java.net.URL;
 
 public class T005_HamcrestTest {
@@ -18,6 +19,7 @@ public class T005_HamcrestTest {
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
+    private MainPageObject mainPageObject;
 
     @Before
     public void setUp() throws Exception {
@@ -30,6 +32,7 @@ public class T005_HamcrestTest {
 
         driver = new AppiumDriver(new URL(TESTOBJECT), capabilities);
         steps = new AppiumDriverSteps(driver);
+        mainPageObject = new MainPageObject(driver);
     }
 
     @Rule
@@ -71,7 +74,8 @@ public class T005_HamcrestTest {
         steps.clickOmniboxButton();
         steps.sendKeys("cat.com");
         steps.checkSuggestSizeOver(1);
-        steps.checkHistorySuggest();
+
+        steps.checkColorInHistorySuggest(mainPageObject.historySuggest, new Color(6, 112, 193), new Color(147, 147, 147));
     }
 
 
