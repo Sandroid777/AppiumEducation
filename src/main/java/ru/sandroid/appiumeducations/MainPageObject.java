@@ -7,11 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 class MainPageObject {
 
-    public MainPageObject(AppiumDriver driver){
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    MainPageObject(AppiumDriver driver){
+        PageFactory.initElements(new AppiumFieldDecorator(driver, 10, TimeUnit.SECONDS), this);
     }
 
     //Омнибокс
@@ -19,7 +20,7 @@ class MainPageObject {
     public WebElement sentry_bar;
 
     //Омнибокс на вэбвкладке
-    @AndroidFindBy(id = "bro_omnibar_address_title")
+    @AndroidFindBy(id = "bro_omnibar_address_title_text")
     public WebElement omniboxWebPaje;
 
     @AndroidFindBy(id = "bro_sentry_bar_input_button")
@@ -45,4 +46,10 @@ class MainPageObject {
     @AndroidFindBy(id = "bro_common_omnibox_text_layout")
     public List<WebElement> suggestList;
 
+
+    public  GroupMeteoWizard groupMeteoWizard;
+    public  GroupHistorySuggest groupHistorySuggest;
+
 }
+
+

@@ -1,5 +1,6 @@
 package ru.sandroid.appiumeducations;
 
+import io.appium.java_client.android.AndroidElement;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,4 @@ class MyMatchers {
             }
         };
     }
-
-
 }

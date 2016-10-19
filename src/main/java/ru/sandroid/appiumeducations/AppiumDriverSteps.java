@@ -1,13 +1,18 @@
 package ru.sandroid.appiumeducations;
 
 import static org.hamcrest.Matchers.both;
+import static org.junit.Assert.assertFalse;
 import static ru.sandroid.appiumeducations.MyMatchers.*;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
@@ -21,25 +26,28 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
-
+import static ru.sandroid.appiumeducations.TestHelper.elementFound;
+import static ru.sandroid.appiumeducations.TestHelper.exists;
 
 
 class AppiumDriverSteps {
 
-        private MainPageObject mainPageObject;
+    private MainPageObject mainPageObject;
+    private MainPageHTML mainPageHTML;
 
-        public AppiumDriver driver;
+    public AppiumDriver driver;
 
         public AppiumDriverSteps (AppiumDriver driver) {
-
             this.driver = driver;
             mainPageObject = new MainPageObject(driver);
+            mainPageHTML = new MainPageHTML(driver);
         }
 
     @Step
@@ -152,10 +160,24 @@ class AppiumDriverSteps {
         Point location = webElement.getLocation();
         int width = webElement.getSize().getWidth();
         int height = webElement.getSize().getHeight();
-
         BufferedImage elementImage = bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
 
         assertThat(elementImage, both(hasColor(findColor1)).and(hasColor(findColor2)));
+    }
+
+    @Step
+    public void checkMeteoWizard() {
+        assertThat("Нет калдунщика погоды", exists(mainPageObject.groupMeteoWizard.wizard));
+        assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
+        assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
+    }
+
+    @Step
+    public void checkMeteoWizardHTML() {
+
+        assertThat("Нет калдунщика погоды", exists(mainPageHTML.groupHTMLMeteoWizard.wizard));
+        assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
+        assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
 
     }
 
@@ -169,8 +191,6 @@ class AppiumDriverSteps {
     public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-
-
 }
 
 

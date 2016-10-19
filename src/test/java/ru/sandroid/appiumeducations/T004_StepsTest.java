@@ -1,6 +1,7 @@
 package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Before;
 import org.junit.Rule;
@@ -23,14 +24,14 @@ public class T004_StepsTest {
 
     @Before
     public void setUp() throws Exception {
-
+        //настройка параметров
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "aPhone");
-        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.yandex.browser");
-        capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, ".YandexBrowserActivity");
+        capabilities.setCapability("deviceName", "aPhone");
+        capabilities.setCapability("appPackage",  "com.yandex.browser");
+        capabilities.setCapability("appActivity", ".YandexBrowserActivity");
+        capabilities.setCapability("unicodeKeyboard", "true");
 
-        driver = new AppiumDriver(new URL(TESTOBJECT), capabilities);
+        driver = new AndroidDriver(new URL(TESTOBJECT), capabilities);
         steps = new AppiumDriverSteps(driver);
     }
 

@@ -1,8 +1,8 @@
 package ru.sandroid.appiumeducations;
 
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,15 +12,13 @@ import org.junit.runner.Description;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.yandex.qatools.allure.annotations.Title;
 
-import java.awt.*;
 import java.net.URL;
 
-public class T005_HamcrestTest {
+public class T006_2_GroupPageHTMLElements {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
-    private MainPageObject mainPageObject;
 
     @Before
     public void setUp() throws Exception {
@@ -33,7 +31,6 @@ public class T005_HamcrestTest {
 
         driver = new AndroidDriver(new URL(TESTOBJECT), capabilities);
         steps = new AppiumDriverSteps(driver);
-        mainPageObject = new MainPageObject(driver);
     }
 
     @Rule
@@ -51,33 +48,16 @@ public class T005_HamcrestTest {
         }
     };
 
-    @Title("Проверка саджеста на > 1")
+    @Title("Использование групп HTML Elements")
     @Test
-    public void chackSuggestSize() throws Exception {
+    public void groupPageObjectUsage() throws Exception {
 
         steps.closeTutorial();
         steps.clickToOmnibox();
-        steps.sendKeys("cat.com");
+        steps.sendKeys("погода");
         steps.checkSuggestSizeOver(1);
+        steps.checkMeteoWizardHTML();
+
     }
-
-    @Title("Проверка цвета в историческом саджесте")
-    @Test
-    public void chackHisorySuggestTextColor() throws Exception {
-
-        steps.closeTutorial();
-        steps.clickToOmnibox();
-        steps.sendKeys("cat.com");
-        steps.checkSuggestSizeOver(1);
-        steps.suggestClick(1);
-
-        steps.clickOmniboxOnWebPage();
-        steps.clickOmniboxButton();
-        steps.sendKeys("cat.com");
-        steps.checkSuggestSizeOver(1);
-
-        steps.checkColorInHistorySuggest(mainPageObject.historySuggest, new Color(6, 112, 193), new Color(147, 147, 147));
-    }
-
 
 }

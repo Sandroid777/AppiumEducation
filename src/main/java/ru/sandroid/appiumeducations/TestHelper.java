@@ -1,9 +1,11 @@
 package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,5 +40,50 @@ class TestHelper {
             }
         }
         return  new Color(0, 0, 0);
+    }
+
+    public static boolean exists(AndroidElement mainElement){
+
+        try {
+            mainElement.isDisplayed();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+    public static boolean exists(HtmlElement mainElement){
+
+        try {
+            mainElement.isDisplayed();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+
+    public static boolean elementFound(AndroidElement androidElement, String string){
+
+        try {
+            androidElement.findElement(By.id(string));
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+    public static boolean elementFound(HtmlElement htmlElement, String string){
+
+        try {
+            htmlElement.findElement(By.id(string));
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 }
