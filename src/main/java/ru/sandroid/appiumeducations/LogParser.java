@@ -16,7 +16,7 @@ class LogParser {
     }
 
     //Поиск строки по логам
-    public boolean FindStringInLog(String findString ){
+    public boolean findStringInLog(String findString ){
 
         //перебор массива
         for(LogEntry l :  logEntryList ){

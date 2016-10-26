@@ -2,7 +2,6 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -17,9 +16,6 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.sandroid.appiumeducations.LogParser;
-import ru.sandroid.appiumeducations.TestHelper;
-
 import static junit.framework.TestCase.assertTrue;
 
 public class T001_BrowserStarterTestOLD {
@@ -84,7 +80,7 @@ public class T001_BrowserStarterTestOLD {
         for(int i = 0; i < 3; i++) {
 
             //Жду 5 секунд
-            TestHelper.ControlWait(driver, 5);
+            TestHelper.controlWait(driver, 5);
 
             //беру у драйвера логи
             logEntryList = (List<LogEntry>) driver.manage().logs().get("logcat").filter(Level.ALL);
@@ -92,7 +88,7 @@ public class T001_BrowserStarterTestOLD {
             //Создаю обьект LogParser передаю в него массив логов и время тапа
             LogParser lp = new LogParser(logEntryList, starttime);
             //Запускаю поиск. если находим "url opened" то выходим
-            if(lp.FindStringInLog("url opened")){
+            if(lp.findStringInLog("url opened")){
                 i=3;
                 pageload =true;
             }
@@ -101,14 +97,6 @@ public class T001_BrowserStarterTestOLD {
         }
         //Проверка
         assertTrue(pageload);
-
-        /*Старый вариант
-        //Статус загрузки страницы буду проверять по кнопке "обновить страницу" в омнибоксе
-        //жду Stop. загрузка началась
-        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Stop']")));
-        //жду Reload загрузка закончена
-        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.ImageButton' and @content-desc='Reload']")));
-        */
     }
 }
 

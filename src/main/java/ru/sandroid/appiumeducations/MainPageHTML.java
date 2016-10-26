@@ -12,5 +12,4 @@ public class MainPageHTML {
     }
 
     public  GroupHTMLMeteoWizard groupHTMLMeteoWizard;
-
 }

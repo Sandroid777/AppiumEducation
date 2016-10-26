@@ -2,19 +2,20 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 class TestHelper {
 
     //Контролируемое ожидание
     //Принимает аппиумный драйвер и int(сколько секунд будем ждать)
-    public static void ControlWait(AppiumDriver driver, int i){
+    public static void controlWait(AppiumDriver driver, int i){
         WebDriverWait wdw = new WebDriverWait(driver, i);
         try {
             //Пытаемся найти несуществующий элимент i секунд

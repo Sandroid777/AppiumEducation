@@ -2,10 +2,7 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-
 import org.apache.commons.io.FileUtils;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,15 +10,11 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.sandroid.appiumeducations.LogParser;
-import ru.sandroid.appiumeducations.MainPageObject;
-
 import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -110,7 +103,7 @@ public class T003_Junit_RulesTestOLD {
             LogParser lp = new LogParser(logEntryList, startTime);
 
             //Запускаю поиск. если находим "url opened" то выходим
-            if(lp.FindStringInLog("url opened")){break;}
+            if(lp.findStringInLog("url opened")){break;}
 
             Thread.sleep(1000);
         };

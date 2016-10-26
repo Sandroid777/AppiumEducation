@@ -2,8 +2,6 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,14 +9,11 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.allure.annotations.Title;
-
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
-
-public class T006_1_GroupPageObject {
+@Title("Урок 6.1 Групперовка элементов")
+public class T006_1_GroupPageObjectTest {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
@@ -54,7 +49,7 @@ public class T006_1_GroupPageObject {
             }
         };
 
-        @Title("Использование групп PageObject")
+        @Title("Использование групп PageObject проверка калдунщика погоды")
         @Test
         public void groupPageObjectUsage() throws Exception {
 

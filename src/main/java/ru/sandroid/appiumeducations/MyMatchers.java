@@ -1,16 +1,12 @@
 package ru.sandroid.appiumeducations;
 
-import io.appium.java_client.android.AndroidElement;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
-import org.openqa.selenium.WebElement;
-
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static ru.sandroid.appiumeducations.TestHelper.findWebElementColor;
-
 
 class MyMatchers {
 

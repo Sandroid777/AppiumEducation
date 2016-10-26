@@ -2,7 +2,6 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,10 +9,6 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.sandroid.appiumeducations.LogParser;
-import ru.sandroid.appiumeducations.MainPageObject;
-import ru.sandroid.appiumeducations.TestHelper;
-
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -83,7 +78,7 @@ public class T002_BrowserStarter_PageObjectTestOLD {
             for(int i = 0; i < 3; i++) {
 
                 //Жду 5 секунд. Использую тут метод вспомогательного класса TestHelper
-                TestHelper.ControlWait(driver, 5);
+                TestHelper.controlWait(driver, 5);
 
                 //беру у драйвера логи
                 logEntryList = driver.manage().logs().get("logcat").filter(Level.ALL);
@@ -91,7 +86,7 @@ public class T002_BrowserStarter_PageObjectTestOLD {
                 //Создаю обьект LogParser передаю в него массив логов и время тапа
                 LogParser lp = new LogParser(logEntryList, starttime);
                 //Запускаю поиск. если находим "url opened" то выходим
-                if(lp.FindStringInLog("url opened")){
+                if(lp.findStringInLog("url opened")){
                     i=3;
                     pageload = true;
                 }

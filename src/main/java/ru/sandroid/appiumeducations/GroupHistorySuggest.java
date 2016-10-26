@@ -3,10 +3,6 @@ package ru.sandroid.appiumeducations;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-import io.appium.java_client.android.AndroidElement;
-
-import io.appium.java_client.pagefactory.AndroidFindBy;
-
 @AndroidFindBy(id = "bro_suggest_search_history")
 public class GroupHistorySuggest extends AndroidElement {
 

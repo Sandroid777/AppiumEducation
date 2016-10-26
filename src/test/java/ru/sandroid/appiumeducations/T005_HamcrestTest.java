@@ -2,7 +2,6 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,9 +11,10 @@ import org.junit.runner.Description;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.yandex.qatools.allure.annotations.Title;
 
-import java.awt.*;
+import java.awt.Color;
 import java.net.URL;
 
+@Title("Урок 5 Использование Hamcrest")
 public class T005_HamcrestTest {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";

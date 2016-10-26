@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+    <module name="NewlineAtEndOfFile"/>
+    <module name="TreeWalker">
+        <module name="LineLength">
+            <property name="max" value="140"/>
+        </module>
+        <module name="MethodName"/>
+        <module name="TypeName"/>
+        <module name="UnusedImports"/>
+        <module name="AvoidStarImport"/>
+    </module>
+
+</module>
+
+
+
+
+

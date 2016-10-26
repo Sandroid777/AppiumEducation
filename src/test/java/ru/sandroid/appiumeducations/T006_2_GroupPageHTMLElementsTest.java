@@ -1,6 +1,5 @@
 package ru.sandroid.appiumeducations;
 
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.Before;
@@ -11,10 +10,10 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.yandex.qatools.allure.annotations.Title;
-
 import java.net.URL;
 
-public class T006_2_GroupPageHTMLElements {
+@Title("Урок 6.2 Групперовка HTML Elements")
+public class T006_2_GroupPageHTMLElementsTest {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
@@ -48,7 +47,7 @@ public class T006_2_GroupPageHTMLElements {
         }
     };
 
-    @Title("Использование групп HTML Elements")
+    @Title("Использование групп HTML Elements. Проверка калдунщика погоды")
     @Test
     public void groupPageObjectUsage() throws Exception {
 
@@ -57,7 +56,5 @@ public class T006_2_GroupPageHTMLElements {
         steps.sendKeys("погода");
         steps.checkSuggestSizeOver(1);
         steps.checkMeteoWizardHTML();
-
     }
-
 }

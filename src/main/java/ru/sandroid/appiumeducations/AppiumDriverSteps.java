@@ -1,32 +1,27 @@
 package ru.sandroid.appiumeducations;
 
 import static org.hamcrest.Matchers.both;
-import static org.junit.Assert.assertFalse;
-import static ru.sandroid.appiumeducations.MyMatchers.*;
-
+import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -36,13 +31,15 @@ import static org.junit.Assert.assertTrue;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
 
-
-class AppiumDriverSteps {
+/**
+ * Steps.
+ */
+final class AppiumDriverSteps {
 
     private MainPageObject mainPageObject;
     private MainPageHTML mainPageHTML;
 
-    public AppiumDriver driver;
+    private AppiumDriver driver;
 
         public AppiumDriverSteps (AppiumDriver driver) {
             this.driver = driver;
@@ -90,7 +87,7 @@ class AppiumDriverSteps {
     }
 
     @Step //устаревший вариант для работы старых тестов
-    public void suggestN3Click() {
+    private void suggestN3Click() {
         mainPageObject.suggestN3.click();
     }
 
@@ -113,7 +110,8 @@ class AppiumDriverSteps {
     public void waitLoadPage(int waitTime){
 
         Date startTime =new Date();
-        Date finalFindTime = new Date(startTime.getTime() + waitTime * 1000); //время ожидания 30сек от тапа
+        //время ожидания 30сек от тапа
+        Date finalFindTime = new Date(startTime.getTime() + waitTime * 1000);
 
         boolean loadPage = false;
         //проверяю логи на наличие события "url opened"
@@ -123,7 +121,7 @@ class AppiumDriverSteps {
             LogParser lp = new LogParser(logEntryList, startTime);
 
             //Запускаю поиск. если находим "url opened" то выходим
-            if(lp.FindStringInLog("url opened")){
+            if(lp.findStringInLog("url opened")){
                 loadPage = true;
                 break;
             }
@@ -167,6 +165,7 @@ class AppiumDriverSteps {
 
     @Step
     public void checkMeteoWizard() {
+
         assertThat("Нет калдунщика погоды", exists(mainPageObject.groupMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
         assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
@@ -178,7 +177,6 @@ class AppiumDriverSteps {
         assertThat("Нет калдунщика погоды", exists(mainPageHTML.groupHTMLMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
         assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
-
     }
 
     //Степ для отладки

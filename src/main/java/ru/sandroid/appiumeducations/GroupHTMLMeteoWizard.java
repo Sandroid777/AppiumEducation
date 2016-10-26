@@ -20,6 +20,4 @@ public class GroupHTMLMeteoWizard extends HtmlElement {
     @Name("кнопка подстановки")
     @FindBy(id = "bro_common_omnibox_button")
     public HtmlElement autoCompletBtn;
-
-
 }
