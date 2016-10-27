@@ -31,9 +31,7 @@ import static org.junit.Assert.assertTrue;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
 
-/**
- * Steps.
- */
+
 final class AppiumDriverSteps {
 
     private MainPageObject mainPageObject;
@@ -164,7 +162,7 @@ final class AppiumDriverSteps {
     }
 
     @Step
-    public void checkMeteoWizard() {
+    public void checkingMeteoWizard() {
 
         assertThat("Нет калдунщика погоды", exists(mainPageObject.groupMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));

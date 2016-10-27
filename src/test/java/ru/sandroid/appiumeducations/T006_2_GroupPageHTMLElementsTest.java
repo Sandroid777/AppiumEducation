@@ -15,37 +15,19 @@ import java.net.URL;
 @Title("Урок 6.2 Групперовка HTML Elements")
 public class T006_2_GroupPageHTMLElementsTest {
 
-    private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
 
     @Before
     public void setUp() throws Exception {
         //настройка параметров
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName", "aPhone");
-        capabilities.setCapability("appPackage",  "com.yandex.browser");
-        capabilities.setCapability("appActivity", ".YandexBrowserActivity");
-        capabilities.setCapability("unicodeKeyboard", "true");
-
-        driver = new AndroidDriver(new URL(TESTOBJECT), capabilities);
-        steps = new AppiumDriverSteps(driver);
+        TestPreparation testPreparation= new TestPreparation();
+        driver = testPreparation.getDriver();
+        steps = testPreparation.getSteps();
     }
 
     @Rule
-    public TestRule watchman = new TestWatcher() {
-
-        @Override
-        protected void finished(Description description) {
-            driver.quit();
-        }
-
-        @Override
-        protected void failed(Throwable e, Description description) {
-            steps.makeScreenshot();
-            driver.quit();
-        }
-    };
+    public TestRule watchman = new CustomRule(driver, steps);
 
     @Title("Использование групп HTML Elements. Проверка калдунщика погоды")
     @Test
