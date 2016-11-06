@@ -10,8 +10,27 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import net.lightbody.bmp.core.har.HarEntry;
+import net.lightbody.bmp.core.har.HarNameValuePair;
 
 class TestHelper {
+
+    //Ищим реферер в HarEntry
+    public  static  URL getRefererInEntry(HarEntry entry) throws MalformedURLException {
+
+        List<HarNameValuePair> headersValue =  entry.getRequest().getHeaders();
+            for(HarNameValuePair value : headersValue)
+            {
+                if(value.getName().equals("Referer")){
+                    return new URL(value.getValue());
+                }
+            }
+        return null;
+    }
 
     //Контролируемое ожидание
     //Принимает аппиумный драйвер и int(сколько секунд будем ждать)

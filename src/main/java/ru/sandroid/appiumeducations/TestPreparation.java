@@ -1,29 +1,40 @@
 package ru.sandroid.appiumeducations;
 
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import org.junit.Before;
+import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.URL;
+import java.net.UnknownHostException;
+import static java.net.InetAddress.getLocalHost;
 
 public class TestPreparation {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
-
+    private BrowserMobProxyServer server;
 
     TestPreparation() throws Exception{
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "aPhone");
         capabilities.setCapability("appPackage",  "com.yandex.browser");
         capabilities.setCapability("appActivity", ".YandexBrowserActivity");
-        capabilities.setCapability("unicodeKeyboard", "true");
+        //capabilities.setCapability("unicodeKeyboard", "true");
 
         driver = new AndroidDriver(new URL(TESTOBJECT), capabilities);
         steps = new AppiumDriverSteps(driver);
+    }
+
+    public  void addProxyServer(int port) throws UnknownHostException {
+        server = new BrowserMobProxyServer();
+
+        server.setHarCaptureTypes(CaptureType.REQUEST_HEADERS);
+        server.start(port, getLocalHost());
+        server.newHar("Har_01");
+
     }
 
     public AppiumDriver getDriver(){
@@ -32,4 +43,5 @@ public class TestPreparation {
     public AppiumDriverSteps getSteps(){
         return  steps;
     }
+    public BrowserMobProxyServer getProxyServer(){return  server;}
 }

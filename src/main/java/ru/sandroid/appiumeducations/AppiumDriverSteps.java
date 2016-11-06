@@ -1,8 +1,13 @@
 package ru.sandroid.appiumeducations;
 
 import static org.hamcrest.Matchers.both;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasSize;
 import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
 import io.appium.java_client.AppiumDriver;
+
+import net.lightbody.bmp.core.har.Har;
+import net.lightbody.bmp.core.har.HarEntry;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
@@ -11,22 +16,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import javax.imageio.ImageIO;
-
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
@@ -36,14 +41,13 @@ final class AppiumDriverSteps {
 
     private MainPageObject mainPageObject;
     private MainPageHTML mainPageHTML;
-
     private AppiumDriver driver;
 
-        public AppiumDriverSteps (AppiumDriver driver) {
-            this.driver = driver;
-            mainPageObject = new MainPageObject(driver);
-            mainPageHTML = new MainPageHTML(driver);
-        }
+    public AppiumDriverSteps (AppiumDriver driver) {
+        this.driver = driver;
+        mainPageObject = new MainPageObject(driver);
+        mainPageHTML = new MainPageHTML(driver);
+    }
 
     @Step
     public void closeTutorial() {
@@ -104,7 +108,7 @@ final class AppiumDriverSteps {
         }
     }
 
-    @Step
+    @Step("Ожидание загрузки строницы. Ждём {0} сек")
     public void waitLoadPage(int waitTime){
 
         Date startTime =new Date();
@@ -135,9 +139,7 @@ final class AppiumDriverSteps {
 
     @Step
     public void checkSuggestSizeOver(int i) {
-
         assertThat(mainPageObject.suggestList, hasSize(greaterThan(i)));
-
     }
 
     @Step
@@ -163,7 +165,6 @@ final class AppiumDriverSteps {
 
     @Step
     public void checkingMeteoWizard() {
-
         assertThat("Нет калдунщика погоды", exists(mainPageObject.groupMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
         assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
@@ -171,22 +172,48 @@ final class AppiumDriverSteps {
 
     @Step
     public void checkMeteoWizardHTML() {
-
         assertThat("Нет калдунщика погоды", exists(mainPageHTML.groupHTMLMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
         assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
     }
 
+    @Step("Тап по навигационнику в омнибоксе")
+    public void clickNavigateInOmnibox() {
+        mainPageObject.omniBlueLink.click();
+    }
+
+    @Step("Реферер содержит в поле from текст = android")
+    public void containtsAndroidInReferer(Har har, String navigationUrl) throws MalformedURLException {
+
+        URL referer = null;
+
+        for (HarEntry entry : har.getLog().getEntries()) {
+            if(entry.getRequest().getUrl().contains(navigationUrl)) {
+                    referer = TestHelper.getRefererInEntry(entry);
+                if(referer != null) {
+                    break;
+                }
+            }
+        }
+
+        assertTrue(referer != null);
+        assertTrue(referer.getQuery().contains("android"));
+    }
+
     //Степ для отладки
     @Step
     public void failedDebugStep() {
-         assertTrue(false);
+        assertTrue(false);
     }
 
     @Attachment(type = "image/png")
     public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
+    //Получаем текст из навигационника в омнибоксе
+    @Step
+    public  String getTextOmniBlueLink() {
+        return mainPageObject.omniBlueLink.getText();
+    }
 }
-
-
