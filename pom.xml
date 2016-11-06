@@ -61,6 +61,11 @@
             <artifactId>htmlelements-all</artifactId>
             <version>1.17</version>
         </dependency>
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
     </dependencies>
 
