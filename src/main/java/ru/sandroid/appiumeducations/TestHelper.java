@@ -10,6 +10,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -33,7 +34,6 @@ class TestHelper {
     }
 
     //Контролируемое ожидание
-    //Принимает аппиумный драйвер и int(сколько секунд будем ждать)
     public static void controlWait(AppiumDriver driver, int i){
         WebDriverWait wdw = new WebDriverWait(driver, i);
         try {
