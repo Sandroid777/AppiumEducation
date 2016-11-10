@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import io.appium.java_client.AppiumDriver;
 
 import net.lightbody.bmp.core.har.Har;

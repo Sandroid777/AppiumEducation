@@ -47,8 +47,6 @@ public class T007_Proxy_Test {
     @Test
     public void refererInOmniNavigateLinkContainsFromAndroid() throws MalformedURLException {
 
-        controlWait(driver, 5);
-        //steps.replaceRegionToRUInStartHandle(server.getHar(), "ru");
         steps.closeTutorial();
         steps.clickToOmnibox();
         steps.sendKeys("wikip");
