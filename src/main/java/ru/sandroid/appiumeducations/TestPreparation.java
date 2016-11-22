@@ -2,10 +2,11 @@ package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponse;
 import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.filters.RequestFilter;
 import net.lightbody.bmp.filters.ResponseFilter;
-import net.lightbody.bmp.proxy.CaptureType;
 import net.lightbody.bmp.util.HttpMessageContents;
 import net.lightbody.bmp.util.HttpMessageInfo;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,6 +15,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.LinkedList;
+import java.util.List;
+
 import static java.net.InetAddress.getLocalHost;
 
 public class TestPreparation {
@@ -22,6 +26,8 @@ public class TestPreparation {
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
+    private List<Request> requestList;
+
 
 
     public void createDriverAndSteps() throws MalformedURLException {
@@ -38,8 +44,21 @@ public class TestPreparation {
     public  void addProxyServer(int port) throws UnknownHostException {
 
         server = new BrowserMobProxyServer();
+        //паораметры для перехвата
+        //server.setHarCaptureTypes(CaptureType.REQUEST_HEADERS, CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
-        server.setHarCaptureTypes(CaptureType.REQUEST_HEADERS, CaptureType.RESPONSE_CONTENT);
+        requestList = new LinkedList<>();
+
+        server.addRequestFilter(new RequestFilter() {
+            @Override
+            public HttpResponse filterRequest(HttpRequest request, HttpMessageContents contents, HttpMessageInfo messageInfo) {
+                synchronized (requestList) {
+                    requestList.add(new Request(request, contents, messageInfo));
+                }
+
+                return null;
+            }
+        });
 
         server.addResponseFilter(new ResponseFilter() {
             @Override
@@ -66,4 +85,7 @@ public class TestPreparation {
         return  steps;
     }
     public BrowserMobProxyServer getProxyServer(){return  server;}
+    public List<Request> getRequestList() {
+        return requestList;
+    }
 }

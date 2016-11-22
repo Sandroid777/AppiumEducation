@@ -8,9 +8,8 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import ru.yandex.qatools.allure.annotations.Title;
 import java.net.MalformedURLException;
-
+import java.util.List;
 import static java.net.InetAddress.getLocalHost;
-import static ru.sandroid.appiumeducations.TestHelper.controlWait;
 
 
 public class T007_Proxy_Test {
@@ -18,6 +17,7 @@ public class T007_Proxy_Test {
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
+    private List<Request> requestList;
 
     final int port = 8989; //порт для прокси сервера
 
@@ -33,6 +33,7 @@ public class T007_Proxy_Test {
         testPreparation.executeCommandLine(adbCommand);
 
         testPreparation.addProxyServer(port);
+        requestList = testPreparation.getRequestList();
         testPreparation.createDriverAndSteps();
 
         server = testPreparation.getProxyServer();
@@ -52,7 +53,7 @@ public class T007_Proxy_Test {
         steps.sendKeys("wikip");
         String navigationUrl = steps.getTextOmniBlueLink();
         steps.clickNavigateInOmnibox();
-        steps.waitLoadPage(30);
-        steps.containtsAndroidInReferer(server.getHar(), navigationUrl);
+        //steps.waitLoadPage(30);
+        steps.containtsAndroidInReferer(requestList, navigationUrl);
         }
 }

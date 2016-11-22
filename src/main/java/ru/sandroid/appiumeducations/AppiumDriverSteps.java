@@ -3,12 +3,9 @@ package ru.sandroid.appiumeducations;
 import static org.hamcrest.Matchers.both;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
-import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
+import static org.hamcrest.Matchers.hasItem;
 
 import io.appium.java_client.AppiumDriver;
-
-import net.lightbody.bmp.core.har.Har;
-import net.lightbody.bmp.core.har.HarEntry;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
@@ -26,14 +23,13 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static ru.sandroid.appiumeducations.MyMatchers.*;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
 
@@ -184,21 +180,8 @@ final class AppiumDriverSteps {
     }
 
     @Step("Реферер содержит в поле from текст = android")
-    public void containtsAndroidInReferer(Har har, String navigationUrl) throws MalformedURLException {
-
-        URL referer = null;
-
-        for (HarEntry entry : har.getLog().getEntries()) {
-            if(entry.getRequest().getUrl().contains(navigationUrl)) {
-                    referer = TestHelper.getRefererInEntry(entry);
-                if(referer != null) {
-                    break;
-                }
-            }
-        }
-
-        assertTrue(referer != null);
-        assertTrue(referer.getQuery().contains("android"));
+    public void containtsAndroidInReferer(List<Request> requestList, String navigationUrl){
+        assertThat(requestList, withWaitFor(hasItem(both(correctURL(navigationUrl)).and(refererContaintText("android"))), 10000));
     }
 
     //Степ для отладки
