@@ -17,7 +17,7 @@ import java.net.URL;
 public class T004_StepsTest {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private AppiumDriverSteps steps;
 
     @Before

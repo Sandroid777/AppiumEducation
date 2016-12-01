@@ -18,7 +18,7 @@ import java.net.URL;
 public class T005_HamcrestTest {
 
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private AppiumDriverSteps steps;
     private MainPageObject mainPageObject;
 

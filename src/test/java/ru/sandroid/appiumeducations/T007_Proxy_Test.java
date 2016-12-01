@@ -7,9 +7,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
 import ru.yandex.qatools.allure.annotations.Title;
-import java.net.MalformedURLException;
-import java.util.List;
-import static java.net.InetAddress.getLocalHost;
+import java.util.LinkedList;
+
 
 
 public class T007_Proxy_Test {
@@ -17,23 +16,16 @@ public class T007_Proxy_Test {
     private AppiumDriver driver;
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
-    private List<Request> requestList;
+    private LinkedList<Request> requestList;
+    private TestPreparation testPreparation;
 
-    final int port = 8989; //порт для прокси сервера
+    public final int PORT = 8989; //порт для прокси сервера
 
     @Before
     public void setUp() throws Exception {
 
         //настройка параметров
-        TestPreparation testPreparation = new TestPreparation();
-
-        //Подготовка команды для adb
-        String adbCommand = "adb shell \"echo yandex --proxy-server=" +
-                getLocalHost().getHostAddress() + ":" + port + " > /data/local/tmp/yandex-browser-command-line";
-        testPreparation.executeCommandLine(adbCommand);
-
-        testPreparation.addProxyServer(port);
-        requestList = testPreparation.getRequestList();
+        testPreparation = new TestPreparation();
         testPreparation.createDriverAndSteps();
 
         server = testPreparation.getProxyServer();
@@ -46,14 +38,18 @@ public class T007_Proxy_Test {
 
     @Title("Реферер содержит from с подстрокой android ")
     @Test
-    public void refererInOmniNavigateLinkContainsFromAndroid() throws MalformedURLException {
+    public void refererInOmniNavigateLinkContainsFromAndroid() throws Exception {
 
+        steps.copyProxyFile(PORT);
+        steps.coldStartBrowser();
+
+        testPreparation.addProxyServer(PORT);
+        requestList = testPreparation.getRequestList();
         steps.closeTutorial();
         steps.clickToOmnibox();
         steps.sendKeys("wikip");
         String navigationUrl = steps.getTextOmniBlueLink();
         steps.clickNavigateInOmnibox();
-        //steps.waitLoadPage(30);
         steps.containtsAndroidInReferer(requestList, navigationUrl);
         }
 }

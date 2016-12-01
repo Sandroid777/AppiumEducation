@@ -1,12 +1,7 @@
 package ru.sandroid.appiumeducations;
 
-import static org.hamcrest.Matchers.both;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.hasItem;
-
-import io.appium.java_client.AppiumDriver;
-
+import static java.net.InetAddress.getLocalHost;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,13 +18,27 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
+import static org.hamcrest.CoreMatchers.both;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
+import java.util.LinkedList;
+
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertTrue;
-import static ru.sandroid.appiumeducations.MyMatchers.*;
+
+import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
+import static ru.sandroid.appiumeducations.MyMatchers.hasRefererQuery;
+import static ru.sandroid.appiumeducations.MyMatchers.hasURL;
+import static ru.sandroid.appiumeducations.MyMatchers.withWaitFor;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
 
@@ -38,12 +47,38 @@ final class AppiumDriverSteps {
 
     private MainPageObject mainPageObject;
     private MainPageHTML mainPageHTML;
-    private AppiumDriver driver;
+    private AndroidDriver driver;
+    private final int TENSECONDS = 10000;
 
-    public AppiumDriverSteps (AppiumDriver driver) {
+    public AppiumDriverSteps (AndroidDriver driver) {
         this.driver = driver;
         mainPageObject = new MainPageObject(driver);
         mainPageHTML = new MainPageHTML(driver);
+    }
+
+    @Step
+    public void copyProxyFile(int port){
+
+        try {
+            String fileString = "yandex --proxy-server=" + getLocalHost().getHostAddress() + ":" + port;
+
+            File file = new File("yandex-browser-command-line");
+
+            PrintWriter printWriter = new PrintWriter(file.getAbsoluteFile());
+            printWriter.print(fileString);
+            printWriter.close();
+
+            driver.pushFile("/data/local/tmp/yandex-browser-command-line", Files.readAllBytes(file.toPath()));
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step
+    public void coldStartBrowser(){
+        driver.resetApp();
     }
 
     @Step
@@ -180,8 +215,10 @@ final class AppiumDriverSteps {
     }
 
     @Step("Реферер содержит в поле from текст = android")
-    public void containtsAndroidInReferer(List<Request> requestList, String navigationUrl){
-        assertThat(requestList, withWaitFor(hasItem(both(correctURL(navigationUrl)).and(refererContaintText("android"))), 10000));
+    public void containtsAndroidInReferer(LinkedList<Request> requestList, String navigationUrl){
+
+        assertThat(requestList, withWaitFor(hasItem(both(hasURL(navigationUrl)).and(hasRefererQuery("android"))), TENSECONDS));
+
     }
 
     //Степ для отладки
@@ -200,4 +237,5 @@ final class AppiumDriverSteps {
     public  String getTextOmniBlueLink() {
         return mainPageObject.omniBlueLink.getText();
     }
+
 }

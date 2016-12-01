@@ -1,15 +1,14 @@
 package ru.sandroid.appiumeducations;
 
-
 import io.netty.handler.codec.http.HttpRequest;
 import net.lightbody.bmp.util.HttpMessageContents;
 import net.lightbody.bmp.util.HttpMessageInfo;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 
 public class Request {
     private HttpRequest request;
@@ -42,6 +41,11 @@ public class Request {
         return requestTime;
     }
 
+
+    public List<Map.Entry<String, String>> getAllHeader() {
+        return request.headers().entries();
+    }
+
     public URL getRequestURL() {
         try {
             return new URL(messageInfo.getUrl());
@@ -49,10 +53,6 @@ public class Request {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public List<Map.Entry<String, String>> getAllHeader() {
-        return request.headers().entries();
     }
 
     public URL getReferer() {

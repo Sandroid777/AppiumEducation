@@ -30,7 +30,7 @@ class MyMatchers {
         return MatcherDecorators.should(matcher).whileWaitingUntil(timeoutHasExpired(ms));
     }
 
-    static Matcher<Request> correctURL(String item) {
+    static Matcher<Request> hasURL(String item) {
         return new FeatureMatcher<Request, String>(equalTo(item), "expected URL - ", "actual URL - ") {
             @Override
             protected String featureValueOf(Request actual) {
@@ -39,7 +39,7 @@ class MyMatchers {
         };
     }
 
-    static Matcher<Request> refererContaintText(final String item) {
+    static Matcher<Request> hasRefererQuery(final String item) {
         return new FeatureMatcher<Request, Boolean>(equalTo(true), "expected - ", "actual - ") {
             @Override
             protected Boolean featureValueOf(Request actual) {
