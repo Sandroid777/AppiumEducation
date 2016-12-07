@@ -1,6 +1,5 @@
 package ru.sandroid.appiumeducations;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponse;
@@ -13,7 +12,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,7 +27,7 @@ public class TestPreparation {
     private AndroidDriver driver;
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
-    private LinkedList<Request> requestList;
+    private List<Request> requestList;
     private ExecutorService executorService;
 
     public void createDriverAndSteps() throws MalformedURLException {
@@ -44,18 +45,13 @@ public class TestPreparation {
 
         server = new BrowserMobProxyServer();
 
-        requestList = new LinkedList<Request>();
+        requestList = Collections.synchronizedList(new ArrayList<Request>());
         executorService = Executors.newFixedThreadPool(1);
 
         server.addRequestFilter(new RequestFilter() {
             @Override
             public HttpResponse filterRequest(final HttpRequest request, final HttpMessageContents contents, final HttpMessageInfo messageInfo) {
-
-                executorService.submit(new Runnable() {
-                    public void run() {
-                        requestList.addLast(new Request(request, contents, messageInfo));
-                    }
-                });
+                requestList.add(new Request(request, contents, messageInfo));
                 return null;
             }
         });
@@ -69,15 +65,14 @@ public class TestPreparation {
         server.start(port, getLocalHost());
     }
 
-
-    public AppiumDriver getDriver(){
+    public AndroidDriver getDriver(){
         return driver;
     }
     public AppiumDriverSteps getSteps(){
         return  steps;
     }
     public BrowserMobProxyServer getProxyServer(){return  server;}
-    public LinkedList<Request> getRequestList() {
+    public List<Request> getRequestList() {
         return requestList;
     }
 }

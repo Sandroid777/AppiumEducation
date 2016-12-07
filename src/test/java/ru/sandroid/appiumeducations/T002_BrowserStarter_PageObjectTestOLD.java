@@ -21,7 +21,7 @@ public class T002_BrowserStarter_PageObjectTestOLD {
         //URL appium сервера
         private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
 
-        private AppiumDriver driver;
+        private AndroidDriver driver;
         private MainPageObject mainPageObject;
 
         @Before

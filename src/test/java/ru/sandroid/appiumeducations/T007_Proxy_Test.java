@@ -1,6 +1,7 @@
 package ru.sandroid.appiumeducations;
 
-import io.appium.java_client.AppiumDriver;
+
+import io.appium.java_client.android.AndroidDriver;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import org.junit.Before;
 import org.junit.Rule;
@@ -8,15 +9,15 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import ru.yandex.qatools.allure.annotations.Title;
 import java.util.LinkedList;
-
+import java.util.List;
 
 
 public class T007_Proxy_Test {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
-    private LinkedList<Request> requestList;
+    private List<Request> requestList;
     private TestPreparation testPreparation;
 
     public final int PORT = 8989; //порт для прокси сервера

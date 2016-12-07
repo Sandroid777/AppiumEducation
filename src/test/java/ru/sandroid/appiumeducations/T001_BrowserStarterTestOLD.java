@@ -23,7 +23,7 @@ public class T001_BrowserStarterTestOLD {
     //URL appium сервера
     private static final String TESTOBJECT = "http://127.0.0.1:4723/wd/hub";
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
 
     @Before
     public void setup() throws Exception {
