@@ -39,6 +39,15 @@ class MyMatchers {
         };
     }
 
+    static Matcher<Response> hasResponceURL(final String item) {
+        return new FeatureMatcher<Response, Boolean>(equalTo(true), "expected - ", "actual - ") {
+            @Override
+            protected Boolean featureValueOf(Response actual) {
+                return actual.getResponseURL().toString().contains(item);
+            }
+        };
+    }
+
     static Matcher<Request> hasRefererQuery(final String item) {
         return new FeatureMatcher<Request, Boolean>(equalTo(true), "expected - ", "actual - ") {
             @Override

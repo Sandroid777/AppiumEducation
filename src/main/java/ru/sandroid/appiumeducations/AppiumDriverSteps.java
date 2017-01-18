@@ -2,6 +2,8 @@ package ru.sandroid.appiumeducations;
 
 import static java.net.InetAddress.getLocalHost;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.AndroidKeyCode;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
@@ -34,6 +36,7 @@ import static org.junit.Assert.assertTrue;
 
 import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
 import static ru.sandroid.appiumeducations.MyMatchers.hasRefererQuery;
+import static ru.sandroid.appiumeducations.MyMatchers.hasResponceURL;
 import static ru.sandroid.appiumeducations.MyMatchers.hasURL;
 import static ru.sandroid.appiumeducations.MyMatchers.withWaitFor;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
@@ -53,7 +56,7 @@ final class AppiumDriverSteps {
         mainPageHTML = new MainPageHTML(driver);
     }
 
-    @Step
+    @Step("Копирую на устройство файл с настройками прокси. Прокси порт:{0}")
     public void copyProxyFile(int port) throws UnknownHostException {
 
             String fileString = "yandex --proxy-server=" + getLocalHost().getHostAddress() + ":" + port;
@@ -61,7 +64,7 @@ final class AppiumDriverSteps {
 
     }
 
-    @Step
+    @Step("Рестарт браузера")
     public void coldStartBrowser(){
         driver.resetApp();
     }
@@ -71,7 +74,7 @@ final class AppiumDriverSteps {
         driver.stopApp();
     }
 
-    @Step
+    @Step("Закрытие экрана обучения")
     public void closeTutorial() {
 
         WebDriverWait waitDriver = new WebDriverWait(driver, 10);
@@ -165,16 +168,15 @@ final class AppiumDriverSteps {
     }
 
     @Step
+    public void checkFeedbackMenuSizeOver(int i) {
+        assertThat(mainPageObject.zenFeedbackMenu, hasSize(greaterThan(i)));
+    }
+
+
+    @Step
     public void checkColorInHistorySuggest(WebElement webElement, Color findColor1, Color findColor2 ){
 
-        //Make Screenshot
-        File screanShot  = driver.getScreenshotAs(OutputType.FILE);
-        BufferedImage bufferedImage = null;
-        try {
-            bufferedImage = ImageIO.read(screanShot);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedImage bufferedImage = makeScreenshotAll();
 
         //Make subimage WebElement
         Point location = webElement.getLocation();
@@ -183,6 +185,19 @@ final class AppiumDriverSteps {
         BufferedImage elementImage = bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
 
         assertThat(elementImage, both(hasColor(findColor1)).and(hasColor(findColor2)));
+    }
+
+    @Step("Поиск цвета (\"{1}\") в элементе \"{0}\"")
+    public void findElementColor(AndroidElement androidElement, Color findColor){
+        BufferedImage bufferedImage = makeScreenshotAll();
+
+        //Make subimage WebElement
+        Point location = androidElement.getLocation();
+        int width = androidElement.getSize().getWidth();
+        int height = androidElement.getSize().getHeight();
+        BufferedImage elementImage = bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
+
+        assertThat(elementImage, hasColor(findColor));
     }
 
     @Step
@@ -208,10 +223,128 @@ final class AppiumDriverSteps {
     public void containtsAndroidInReferer(List<Request> requestList, String navigationUrl){
 
         assertThat(requestList, withWaitFor(hasItem(both(hasURL(navigationUrl)).and(hasRefererQuery("android"))), TENSECONDS));
-
     }
 
-    //Степ для отладки
+    //Получаем текст из навигационника в омнибоксе
+    @Step("Get text from omnibox blue link")
+    public  String getTextOmniBlueLink() {
+        return mainPageObject.omniBlueLink.getText();
+    }
+
+    @Step("Открытие ленты дзен")
+    public void openZenStripe(){
+        assertThat("Нет дзена", exists(mainPageObject.zenSrtipeGroup));
+        int TopY = getTopY(mainPageObject.zenSrtipeGroup) + 1;
+        int CenterX = getCenterX(mainPageObject.zenSrtipeGroup);
+        driver.swipe(CenterX, TopY, CenterX, TopY-130, 1000);
+    }
+
+    @Step("Ждём появления похожих")
+    public void waitSimlarVisible(){
+        assertThat("Нет похожих", exists(mainPageObject.similarityText));
+    }
+
+    @Step("Ждём ответа ручки Similar")
+    public void waitSimlarResponce(List<Response> responseList, String similarUrl){
+        assertThat(responseList, withWaitFor(hasItem(hasResponceURL(similarUrl)), TENSECONDS));
+    }
+
+    @Step("Открытие меню отзыва на карточке дзена")
+    public void openFeedbackMenu(int index){
+        mainPageObject.zenSrtipeGroup.zenSrtipe.get(index).zenFeedbackButton.click();
+    }
+
+    @Step("Тап по карточке дзена {0}")
+    public void tapToZenCard(int index){
+        int CenterY = getCenterY(mainPageObject.zenSrtipeGroup.zenSrtipe.get(index));
+        int CenterX = getCenterX(mainPageObject.zenSrtipeGroup.zenSrtipe.get(index));
+        driver.tap(1, CenterX, CenterY, 100);
+    }
+
+    @Step("Тап по превой карточке похожих")
+    public void tapToFirstSimilarityCard(){
+        int CenterY = getCenterY(mainPageObject.zenSimilarityCard);
+        int CenterX = getCenterX(mainPageObject.zenSimilarityCard);
+        driver.tap(1, CenterX, CenterY, 100);
+    }
+
+
+    @Step("Беру у элемента \"{0}\" верхнюю точку координат")
+    public int getTopY(AndroidElement element) {
+        return element.getLocation().getY();
+    }
+
+    @Step("Беру у элемента \"{0}\" нижнюю точку координат")
+    public int getBottomY(AndroidElement element) {
+        int topY = element.getLocation().getY();
+        int height = element.getSize().getHeight();
+        return topY + height;
+    }
+
+    @Step("Беру у элемента \"{0}\" левую точку координат")
+    public int getLeftX(AndroidElement element) {
+        return element.getLocation().getX();
+    }
+
+    @Step("Беру у элемента \"{0}\" правую точку координат")
+    public int getRightX(WebElement element) {
+        int leftX = element.getLocation().getX();
+        int width = element.getSize().getWidth();
+        return leftX + width;
+    }
+
+    @Step("Беру у элемента \"{0}\" центральную точку по Х")
+    public int getCenterX(AndroidElement element) {
+        int leftX = element.getLocation().getX();
+        int width = element.getSize().getWidth();
+        return leftX + width / 2;
+    }
+
+    @Step("Беру у элемента \"{0}\" центральную точку по У")
+    public int getCenterY(AndroidElement element) {
+        int topY = element.getLocation().getY();
+        int height = element.getSize().getHeight();
+        return topY + height / 2;
+    }
+
+    @Step
+    public void tapBack(){
+        driver.pressKeyCode(AndroidKeyCode.BACK);
+    }
+
+    @Step
+    public BufferedImage getElementScreenshot(AndroidElement androidElement){
+        BufferedImage bufferedImage = makeScreenshotAll();
+
+        //Make subimage AndroidElement
+        Point location = androidElement.getLocation();
+        int width = androidElement.getSize().getWidth();
+        int height = androidElement.getSize().getHeight();
+        return bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
+    }
+
+    //Внутренние методы
+    private   BufferedImage makeScreenshotAll() {
+        //Make Screenshot
+        File screanShot = driver.getScreenshotAs(OutputType.FILE);
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(screanShot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return bufferedImage;
+        }
+    }
+
+    @Step("")//Заглушка нужна реализация
+    public int parsZenJsonResponce(){
+        return 0;
+    }
+
+
+    //Степы для отладки
     @Step
     public void failedDebugStep() {
         assertTrue(false);
@@ -221,11 +354,4 @@ final class AppiumDriverSteps {
     public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-
-    //Получаем текст из навигационника в омнибоксе
-    @Step
-    public  String getTextOmniBlueLink() {
-        return mainPageObject.omniBlueLink.getText();
-    }
-
 }

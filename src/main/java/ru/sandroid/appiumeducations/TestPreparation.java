@@ -28,6 +28,7 @@ public class TestPreparation {
     private AppiumDriverSteps steps;
     private BrowserMobProxyServer server;
     private List<Request> requestList;
+    private List<Response> responseList;
     private ExecutorService executorService;
 
     public void createDriverAndSteps() throws MalformedURLException {
@@ -41,9 +42,8 @@ public class TestPreparation {
         steps = new AppiumDriverSteps(driver);
     }
 
-    public  void addProxyServer(int port) throws UnknownHostException {
-
-        server = new BrowserMobProxyServer();
+    //Старый вариант для работы T007_Proxy_Test
+    public  void addInterceptRequest() throws UnknownHostException {
 
         requestList = Collections.synchronizedList(new ArrayList<Request>());
         executorService = Executors.newFixedThreadPool(1);
@@ -55,15 +55,37 @@ public class TestPreparation {
                 return null;
             }
         });
+    }
+
+    public void createProxy(){
+        server = new BrowserMobProxyServer();
+    }
+
+    public void startProxy(int port) throws UnknownHostException {
+        server.start(port, getLocalHost());
+    }
+
+    public void replaceJsonInResponse(final List<String> hostList, final List<String> jsonList){
+
+        responseList = Collections.synchronizedList(new ArrayList<Response>());
+        executorService = Executors.newFixedThreadPool(1);//TODO возможно не надо уже
 
         server.addResponseFilter(new ResponseFilter() {
             @Override
             public void filterResponse(HttpResponse response, HttpMessageContents contents, HttpMessageInfo messageInfo) {
+
+                //бегу по масиву хостов
+                for(int i = 0; i < hostList.size(); i++){
+                    //Если хост совпадает делаю подмену jsona
+                    if(messageInfo.getUrl().contains(hostList.get(i))){
+                        contents.setTextContents(jsonList.get(i));
+                    }
+                }
+                responseList.add(new Response(response, contents, messageInfo));
             }
         });
-
-        server.start(port, getLocalHost());
     }
+
 
     public AndroidDriver getDriver(){
         return driver;
@@ -74,5 +96,8 @@ public class TestPreparation {
     public BrowserMobProxyServer getProxyServer(){return  server;}
     public List<Request> getRequestList() {
         return requestList;
+    }
+    public List<Response> getResponseList() {
+        return responseList;
     }
 }

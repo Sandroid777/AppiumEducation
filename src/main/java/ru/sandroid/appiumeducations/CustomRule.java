@@ -36,6 +36,12 @@ public class CustomRule extends TestWatcher {
     @Override
     protected void failed(Throwable e, Description description) {
         steps.makeScreenshot();
-        driver.quit();
+        if(server != null) {
+            server.stop();
+        }
+
+        if(driver != null) {
+            driver.quit();
+        }
     }
 }

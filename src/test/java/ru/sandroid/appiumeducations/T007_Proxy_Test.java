@@ -44,9 +44,13 @@ public class T007_Proxy_Test {
         steps.copyProxyFile(PORT);
         steps.coldStartBrowser();
 
-        testPreparation.addProxyServer(PORT);
+        testPreparation.createProxy();
+        testPreparation.addInterceptRequest();
+        testPreparation.startProxy(PORT);
+
         requestList = testPreparation.getRequestList();
         steps.closeTutorial();
+
         steps.clickToOmnibox();
         steps.sendKeys("wikip");
         String navigationUrl = steps.getTextOmniBlueLink();

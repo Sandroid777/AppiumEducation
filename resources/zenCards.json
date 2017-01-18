@@ -1,0 +1,170 @@
+{
+  "count": 4,
+  "more": {
+    "link": "<zen-url>more?clid1010=2263185"
+  },
+  "prev": {
+    "link": "<zen-url>prev?device_id=mbauto_device_id&country_code=ru&showid=5750118f337efe374d2dd344&clid1010=2263185"
+  },
+  "items": [{
+    "title": "Интерфейсы в реальном мире: проектируем самый адский интерфейс",
+    "domain": "ХАБРАХАБР",
+    "link": "https://habrahabr.ru/company/mosigra/blog/283530/",
+    "link_short": "",
+    "logo": "",
+    "image": "https://avatars.mds.yandex.net/get-zen_doc/29485/db_8431840310137891976/smart_crop",
+    "text": "До прошлой недели абсолютным чемпионом по упоротости интерфейса для меня всегда были мультиварки. Одну из них мы втроём (включая системного архитектора) пытались включить 6 минут, пока не пришла хозяйка. Но нет, этот рекорд тоже оказался побит. Вот это небольшое устройство, знакомое большинству жителей нашей страны, отняло у меня 25 долбанных минут на то, чтобы выставить время. Знакомьтесь, чемпион по когнитивной сопротивляемости:\nСейчас расскажу, какой крови мне это стоило. Ну и сразу – второй...",
+    "date": "",
+    "similar": {
+      "link": "https://zen.yandex.ru/api/v2/android/similar?country_code=ru&uuid=31dd01f9e6485a48b5b3a181280a1ad2&device_id=50b2f5f140d346a47c55b7ee483b1e87&url=http%3A%2F%2Fkp.ru%2Fonline%2Fnews%2F2628358%2F&rid=3399218806.1019115.1484670503105.41080&clid1010=2263185"
+    },
+    "stats": {
+      "short": "<zen-url>stats/short?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "pull": "<zen-url>stats/pull?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "show": "<zen-url>stats/show?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "click": "<zen-url>stats/click?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "share": "<zen-url>stats/share?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "feedback": "<zen-url>stats/feedback?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+    },
+    "feedback": {
+      "more": {
+        "main": true,
+        "delete": false,
+        "text": "Больше такого ",
+        "stat": "<zen-url>stats/feedback/more?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "less": {
+        "main": false,
+        "delete": true,
+        "text": "Меньше такого",
+        "stat": "<zen-url>stats/feedback/less?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "block": {
+        "main": false,
+        "delete": true,
+        "text": "Заблокировать сайт habrahabr.ru",
+        "stat": "<zen-url>stats/feedback/block?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmosigra%2Fblog%2F283530%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=0&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      }
+    }
+  }, {
+    "title": "Разработка → 3 греха мобильной разработки на Mobius 2016",
+    "domain": "ХАБРАХАБР",
+    "link": "https://habrahabr.ru/company/jugru/blog/302400/",
+    "link_short": "",
+    "logo": "",
+    "image": null,
+    "text": "До Mobius 2016 осталось 3 дня, и программа уже готова. Получилось 24 доклада о мобильной разработке: Android, iOS и кроссплатформенной. Чтобы внимательно изучить их все, надо потратить почти час времени, поэтому мы подготовили небольшой гайд по программе, которая сама собой разделилась на три направления, не привязанных к платформе:\nOn the Edge;\nHardcore;\nSoftware Craftsmanship;\nОднако этот пост не только о конференции – каждый из докладов попадает в программу из-за того или иного «грешка», распространенного среди программистов. Давайте посмотрим подробнее…\nГрех 0: Поклонение silver bullet.\nДа,...",
+    "date": "",
+    "similar": {
+      "link": "<zen-url>similar?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&url=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&clid1010=2263185&token="
+    },
+    "stats": {
+      "short": "<zen-url>stats/short?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "pull": "<zen-url>stats/pull?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "show": "<zen-url>stats/show?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "click": "<zen-url>stats/click?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "share": "<zen-url>stats/share?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "feedback": "<zen-url>stats/feedback?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+    },
+    "feedback": {
+      "more": {
+        "main": true,
+        "delete": false,
+        "text": "Больше такого ",
+        "stat": "<zen-url>stats/feedback/more?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "less": {
+        "main": false,
+        "delete": true,
+        "text": "Меньше такого",
+        "stat": "<zen-url>stats/feedback/less?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "block": {
+        "main": false,
+        "delete": true,
+        "text": "Заблокировать сайт habrahabr.ru",
+        "stat": "<zen-url>stats/feedback/block?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fjugru%2Fblog%2F302400%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      }
+    }
+  }, {
+    "title": "Что мешает развиваться автоматизации бизнес-процессов в онлайн-рекрутинге",
+    "domain": "ХАБРАХАБР",
+    "link": "https://habrahabr.ru/company/moikrug/blog/302414/",
+    "link_short": "",
+    "logo": "",
+    "image": null,
+    "text": "Начиная с 2000-х годов автоматизация бизнес-процессов стала поглощать одну сферу за другой. В результате этого у управленцев (а, следовательно, и у рядовых сотрудников) стало на одну проблему больше: ранее они периодически страдали, что их бизнес работает неидеально, а потом к этому прибавились переживания о том, что он вообще работает не оптимально – то есть, без использования современных технологий.\nКонечно же, можно рассматривать эту тенденции и с положительной стороны: мир действительно изменился, на многих рынках изменились правила игры. Всеобщая информатизация – явление глобальное и объективное, как ни крути...",
+    "date": "",
+    "similar": {
+      "link": "<zen-url>similar?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&url=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&clid1010=2263185&token="
+    },
+    "stats": {
+      "short": "<zen-url>stats/short?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "pull": "<zen-url>stats/pull?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "show": "<zen-url>stats/show?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "click": "<zen-url>stats/click?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "share": "<zen-url>stats/share?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "feedback": "<zen-url>stats/feedback?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+    },
+    "feedback": {
+      "more": {
+        "main": true,
+        "delete": false,
+        "text": "Больше такого ",
+        "stat": "<zen-url>stats/feedback/more?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "less": {
+        "main": false,
+        "delete": true,
+        "text": "Меньше такого",
+        "stat": "<zen-url>stats/feedback/less?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "block": {
+        "main": false,
+        "delete": true,
+        "text": "Заблокировать сайт habrahabr.ru",
+        "stat": "<zen-url>stats/feedback/block?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=https%3A%2F%2Fhabrahabr.ru%2Fcompany%2Fmoikrug%2Fblog%2F302414%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=2&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      }
+    }
+  }, {
+    "title": "AliExpress: самые интересные находки этой недели",
+    "domain": "LIFEHACKER",
+    "link": "http://lifehacker.ru/2016/05/27/aliexpress-28/",
+    "link_short": "",
+    "logo": "https://yastatic.net/zen-logos/files/domain-logos/lifehacker.ru.png?md5=3f51482d71bb01dbc267a0256642dd37",
+    "image": null,
+    "text": "Самое необычное, забавное и дешёвое, что мы нашли на просторах торговой интернет-площадки AliExpress за эту неделю.\nУдобный дырокол\nКомпактный металлический дырокол с отсеком для хранения вырезанной бумаги. Аккуратно пробивает одно отверстие за раз, что иногда бывает удобнее классического двойного дырокола. Заявлено пробивание всего до 8 листов, но, судя по отзывам, инструмент уверенно справляется и с 10–15 листами в зависимости от толщины. Картон ему тоже по зубам.\nКупить за 110 рублей →\nРаспылитель для мойки авто\nТе, кто моет свою машину самостоятельно, знают, как утомительна бывает возня с тряпками, шампунями и садовым шлангом...",
+    "date": "",
+    "similar": {
+      "link": "<zen-url>similar?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&url=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&clid1010=2263185&token="
+    },
+    "stats": {
+      "short": "<zen-url>stats/short?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "pull": "<zen-url>stats/pull?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "show": "<zen-url>stats/show?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "click": "<zen-url>stats/click?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "share": "<zen-url>stats/share?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token=",
+      "feedback": "<zen-url>stats/feedback?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+    },
+    "feedback": {
+      "more": {
+        "main": true,
+        "delete": false,
+        "text": "Больше такого ",
+        "stat": "<zen-url>stats/feedback/more?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "less": {
+        "main": false,
+        "delete": true,
+        "text": "Меньше такого",
+        "stat": "<zen-url>stats/feedback/less?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      },
+      "block": {
+        "main": false,
+        "delete": true,
+        "text": "Заблокировать сайт lifehacker.ru",
+        "stat": "<zen-url>stats/feedback/block?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502af898c6856a1cdd2373&link=http%3A%2F%2Flifehacker.ru%2F2016%2F05%2F27%2Faliexpress-28%2F&rid=4092040811.7274.1464871671679.17883&sf=recc&dst=abr_native&pos=3&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=2263185&token="
+      }
+    }
+  }]
+}

@@ -54,6 +54,18 @@ class MainPageObject {
     public  GroupMeteoWizard groupMeteoWizard;
     public  GroupHistorySuggest groupHistorySuggest;
 
+    public ZenSrtipeGroup zenSrtipeGroup;
+
+    @AndroidFindBy(id = "zen_ribbon_text_similarity_card")
+    public AndroidElement similarityText;
+
+    //Фидкек меню дзена
+    @AndroidFindBy(id = "text")
+    public List<AndroidElement>  zenFeedbackMenu;
+
+    @AndroidFindBy(id = "zen_ribbon_image_similarity_card")
+    public ZenSimilarityCard zenSimilarityCard;
+
 }
 
 

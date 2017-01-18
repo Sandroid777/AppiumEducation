@@ -1,0 +1,50 @@
+﻿{
+  "count": 1,
+  "more": {
+    "link": "<zen-url>more"
+  },
+  "prev": {
+    "link": "<zen-url>prev?device_id=mbauto_device_id&country_code=ru&showid=57502af898c6856a1cdd2373"
+  },
+  "items": [{
+    "title": "Ксюша хорошая девочка!!!",
+    "domain": "Sandro.RU",
+    "link": "https://www.drive.ru/drive-test/hyundai/574e9a3cec05c4d3660000ec.html",
+    "link_short": "",
+    "logo": "",
+    "image": "http://www.nastol.com.ua/pic/201502/1920x1200/nastol.com.ua-128024.jpg",
+    "text": "Ксюша Войтешонок очень хорошая девочка. И сейчас с мамой и папой поедет кушать котлетки.",
+    "date": "",
+    "similar": {
+"link": "https://zen.yandex.ru/api/v2/android/similar?country_code=ru&uuid=31dd01f9e6485a48b5b3a181280a1ad2&device_id=50b2f5f140d346a47c55b7ee483b1e87&url=http%3A%2F%2Fkp.ru%2Fonline%2Fnews%2F2628358%2F&rid=3399218806.1019115.1484670503105.41080&clid1010=2263185"
+    },
+    "stats": {
+      "short": "<zen-url>stats/short?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token=",
+      "pull": "<zen-url>stats/pull?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token=",
+      "show": "<zen-url>stats/show?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token=",
+      "click": "<zen-url>stats/click?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token=",
+      "share": "<zen-url>stats/share?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token=",
+      "feedback": "<zen-url>stats/feedback?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token="
+    },
+    "feedback": {
+      "more": {
+        "main": true,
+        "delete": false,
+        "text": "Больше такого ",
+        "stat": "<zen-url>stats/feedback/more?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token="
+      },
+      "less": {
+        "main": false,
+        "delete": true,
+        "text": "Меньше такого",
+        "stat": "<zen-url>stats/feedback/less?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token="
+      },
+      "block": {
+        "main": false,
+        "delete": true,
+        "text": "Заблокировать сайт drive.ru",
+        "stat": "<zen-url>stats/feedback/block?country_code=ru&uuid=mbauto_uuid&device_id=mbauto_device_id&showid=57502b38f49bb9561c173e02&link=https%3A%2F%2Fwww.drive.ru%2Fdrive-test%2Fhyundai%2F574e9a3cec05c4d3660000ec.html&rid=4092040811.7254.1464871736023.22390&sf=recc&dst=abr_native&pos=1&group=ab%3Aru_desktop_3%3Acontrol%2Cab%3Acom7%3Avideo_10_1_3_0%2Cab%3Aru_new_violence%3Aru_new_violence%2Ckv%2Cctrs_a%2Cru_retrain%2Cru_ob_similar&rd=country%3D225%2Cmodel%3Dru%2Cg%3Da0B5eQBde2NZX2JuSHIFXVVJRltCBAA%3D&clid1010=&token="
+      }
+    }
+  }]
+}
