@@ -10,6 +10,7 @@ import org.junit.rules.TestRule;
 import ru.yandex.qatools.allure.annotations.Title;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.util.List;
 import java.util.ArrayList;
 import static ru.sandroid.appiumeducations.TestHelper.fileToString;
@@ -98,6 +99,7 @@ public class T008_Control_Task_Zen_Test {
 
         steps.tapToZenCard(0);
         steps.waitSimlarResponce(responseList, ZEN_SIMLAR);
+        steps.waitRecordInLog("url opened", driver);
         steps.tapBack();
         steps.waitSimlarVisible();
         BufferedImage similarImageBeforeTap = steps.getElementScreenshot(mainPageObject.zenSimilarityCard.image);
@@ -106,6 +108,8 @@ public class T008_Control_Task_Zen_Test {
         steps.tapBack();
         steps.waitSimlarVisible();
         BufferedImage similarImageAfterTap = steps.getElementScreenshot(mainPageObject.zenSimilarityCard.image);
-        //TODO сделать сравнение изображений similarImageBeforeTap и similarImageAfterTap
+
+        Boolean expectedResult = true;
+        steps.compareBufferedImage(expectedResult, similarImageBeforeTap, similarImageAfterTap);
     }
 }

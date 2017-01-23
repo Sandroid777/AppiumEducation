@@ -26,18 +26,22 @@ import java.util.List;
 import java.util.logging.Level;
 
 import static org.hamcrest.CoreMatchers.both;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertTrue;
 
+import static ru.sandroid.appiumeducations.MyMatchers.compareImage;
 import static ru.sandroid.appiumeducations.MyMatchers.hasColor;
 import static ru.sandroid.appiumeducations.MyMatchers.hasRefererQuery;
 import static ru.sandroid.appiumeducations.MyMatchers.hasResponceURL;
 import static ru.sandroid.appiumeducations.MyMatchers.hasURL;
+import static ru.sandroid.appiumeducations.MyMatchers.logContainsString;
 import static ru.sandroid.appiumeducations.MyMatchers.withWaitFor;
 import static ru.sandroid.appiumeducations.TestHelper.elementFound;
 import static ru.sandroid.appiumeducations.TestHelper.exists;
@@ -49,6 +53,7 @@ final class AppiumDriverSteps {
     private MainPageHTML mainPageHTML;
     private AndroidDriver driver;
     private final int TENSECONDS = 10000;
+    private final int THIRTYSECONDS = 30000;
 
     public AppiumDriverSteps (AndroidDriver driver) {
         this.driver = driver;
@@ -133,8 +138,10 @@ final class AppiumDriverSteps {
         }
     }
 
+    //Старый вариант ожидания загрузки страницы.
     @Step("Ожидание загрузки строницы. Ждём {0} сек")
     public void waitLoadPage(int waitTime){
+
 
         Date startTime =new Date();
         //время ожидания 30сек от тапа
@@ -160,6 +167,11 @@ final class AppiumDriverSteps {
             }
         };
         assertTrue(loadPage);
+    }
+
+    @Step("Ожидание записи в логе: {0}")
+    public void waitRecordInLog(String logString, AndroidDriver driver){
+        assertThat("Не дождались в логе записи: " + logString, driver, withWaitFor(logContainsString(logString), THIRTYSECONDS));
     }
 
     @Step
@@ -281,6 +293,11 @@ final class AppiumDriverSteps {
         return topY + height;
     }
 
+    @Step("Сравнение двух изображения ожидается: {0}")
+    public void compareBufferedImage(Boolean expectedResult, BufferedImage image1, BufferedImage image2){
+        assertThat(image1, compareImage(image2, expectedResult));
+    }
+
     @Step("Беру у элемента \"{0}\" левую точку координат")
     public int getLeftX(AndroidElement element) {
         return element.getLocation().getX();
@@ -342,7 +359,6 @@ final class AppiumDriverSteps {
     public int parsZenJsonResponce(){
         return 0;
     }
-
 
     //Степы для отладки
     @Step
