@@ -12,17 +12,13 @@ import java.util.concurrent.TimeUnit;
 
 class MainPageObject {
 
-    MainPageObject(AppiumDriver driver){
-        PageFactory.initElements(new AppiumFieldDecorator(driver, 10, TimeUnit.SECONDS), this);
-    }
-
     //Омнибокс
     @AndroidFindBy(id = "bro_sentry_bar_fake")
-    public WebElement sentry_bar;
+    public WebElement sentryBar;
 
     //Омнибокс на вэбвкладке
     @AndroidFindBy(id = "bro_omnibar_address_title_text")
-    public WebElement omniboxWebPaje;
+    public WebElement omniboxWebPage;
 
     @AndroidFindBy(id = "bro_sentry_bar_input_button")
     public WebElement omniboxButton;
@@ -37,7 +33,7 @@ class MainPageObject {
 
     //Строка ввода в омнибоксе
     @AndroidFindBy(id = "bro_sentry_bar_input_edittext")
-    public WebElement omni_edittext;
+    public WebElement omniTextEdit;
 
     //устаревший вариант для работы старых тестов
     @AndroidFindBy(xpath = "//*[@class='android.widget.ListView' and @index = '2']")
@@ -66,6 +62,9 @@ class MainPageObject {
     @AndroidFindBy(id = "zen_ribbon_image_similarity_card")
     public ZenSimilarityCard zenSimilarityCard;
 
+    MainPageObject(AppiumDriver driver){
+        PageFactory.initElements(new AppiumFieldDecorator(driver, 10, TimeUnit.SECONDS), this);
+    }
 }
 
 

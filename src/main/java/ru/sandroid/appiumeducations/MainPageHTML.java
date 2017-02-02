@@ -7,9 +7,9 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory
 
 public class MainPageHTML {
 
+    public  GroupHTMLMeteoWizard groupHTMLMeteoWizard;
+
     public MainPageHTML(AppiumDriver driver) {
         PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
     }
-
-    public  GroupHTMLMeteoWizard groupHTMLMeteoWizard;
 }

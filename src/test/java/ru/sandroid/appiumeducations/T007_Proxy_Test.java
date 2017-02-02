@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
 import ru.yandex.qatools.allure.annotations.Title;
-import java.util.LinkedList;
+
 import java.util.List;
 
 
@@ -16,26 +16,24 @@ public class T007_Proxy_Test {
 
     private AndroidDriver driver;
     private AppiumDriverSteps steps;
-    private BrowserMobProxyServer server;
+    private AndridProxy server;
     private List<Request> requestList;
-    private TestPreparation testPreparation;
 
     public final int PORT = 8989; //порт для прокси сервера
 
     @Before
     public void setUp() throws Exception {
 
-        //настройка параметров
-        testPreparation = new TestPreparation();
-        testPreparation.createDriverAndSteps();
+        driver = androidCustomRule.getDriver();
+        steps = new AppiumDriverSteps(driver);
 
-        server = testPreparation.getProxyServer();
-        driver = testPreparation.getDriver();
-        steps = testPreparation.getSteps();
+        server = new AndridProxy();
+        server.addInterceptRequest();
+        server.startProxy();
     }
 
     @Rule
-    public TestRule watchman = new CustomRule(driver, steps, server);
+    public AndroidCustomRule androidCustomRule = new AndroidCustomRule();
 
     @Title("Реферер содержит from с подстрокой android ")
     @Test
@@ -44,11 +42,7 @@ public class T007_Proxy_Test {
         steps.copyProxyFile(PORT);
         steps.coldStartBrowser();
 
-        testPreparation.createProxy();
-        testPreparation.addInterceptRequest();
-        testPreparation.startProxy(PORT);
-
-        requestList = testPreparation.getRequestList();
+        requestList = server.getRequestList();
         steps.closeTutorial();
 
         steps.clickToOmnibox();

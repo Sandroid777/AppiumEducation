@@ -8,7 +8,6 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @FindBy(id = "bro_suggest_wizard")
 public class GroupHTMLMeteoWizard extends HtmlElement {
 
-
     @Name("калдунщик")
     @FindBy(id = "bro_common_omnibox_wizard_text")
     public HtmlElement wizard;

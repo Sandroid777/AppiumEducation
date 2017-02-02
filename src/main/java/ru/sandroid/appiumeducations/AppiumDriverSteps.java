@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.logging.Level;
 
 import static org.hamcrest.CoreMatchers.both;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.contains;
@@ -52,10 +51,10 @@ final class AppiumDriverSteps {
     private MainPageObject mainPageObject;
     private MainPageHTML mainPageHTML;
     private AndroidDriver driver;
-    private final int TENSECONDS = 10000;
-    private final int THIRTYSECONDS = 30000;
+    private final static int TEN_SECONDS = 10000;
+    private final static int THIRTY_SECONDS = 30000;
 
-    public AppiumDriverSteps (AndroidDriver driver) {
+    public AppiumDriverSteps(AndroidDriver driver) {
         this.driver = driver;
         mainPageObject = new MainPageObject(driver);
         mainPageHTML = new MainPageHTML(driver);
@@ -66,7 +65,6 @@ final class AppiumDriverSteps {
 
             String fileString = "yandex --proxy-server=" + getLocalHost().getHostAddress() + ":" + port;
             driver.pushFile("/data/local/tmp/yandex-browser-command-line", fileString.getBytes());
-
     }
 
     @Step("Рестарт браузера")
@@ -85,45 +83,45 @@ final class AppiumDriverSteps {
         WebDriverWait waitDriver = new WebDriverWait(driver, 10);
 
         try {
-            waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentry_bar));
+            waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentryBar));
         }
         catch (Exception s){
             waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.closeTutorialBtn)).click();
         }
     }
 
-    @Step
+    @Step("Тап в омнибокс")
     public void clickToOmnibox() {
-        mainPageObject.sentry_bar.click();
+        mainPageObject.sentryBar.click();
     }
 
-    @Step
+    @Step("Тап в омнибокс на вэбвкладке")
     public void clickOmniboxOnWebPage() {
-        mainPageObject.omniboxWebPaje.click();
+        mainPageObject.omniboxWebPage.click();
     }
 
-    @Step
+    @Step("Тап по кнопке ввода омнибокса")
     public void clickOmniboxButton() {
         mainPageObject.omniboxButton.click();
     }
 
-    @Step
+    @Step("Тап по историческому саджесту")
     public void clickHistorySuggest() {
         mainPageObject.historySuggest.click();
     }
 
-
-    @Step
+    @Step("Send keys: {0}")
     public void sendKeys(String string) {
-        mainPageObject.omni_edittext.sendKeys(string);
+        mainPageObject.omniTextEdit.sendKeys(string);
     }
 
-    @Step //устаревший вариант для работы старых тестов
+    //устаревший вариант для работы старых тестов
+    @Step("Тап по саджесту №3")
     private void suggestN3Click() {
         mainPageObject.suggestN3.click();
     }
 
-    @Step
+    @Step("Тап по саджесту № {0}")
     public void suggestClick(int suggestNumber){
 
         int n = mainPageObject.suggestList.size() - suggestNumber;
@@ -141,7 +139,6 @@ final class AppiumDriverSteps {
     //Старый вариант ожидания загрузки страницы.
     @Step("Ожидание загрузки строницы. Ждём {0} сек")
     public void waitLoadPage(int waitTime){
-
 
         Date startTime =new Date();
         //время ожидания 30сек от тапа
@@ -171,21 +168,20 @@ final class AppiumDriverSteps {
 
     @Step("Ожидание записи в логе: {0}")
     public void waitRecordInLog(String logString, AndroidDriver driver){
-        assertThat("Не дождались в логе записи: " + logString, driver, withWaitFor(logContainsString(logString), THIRTYSECONDS));
+        assertThat("Не дождались в логе записи: " + logString, driver, withWaitFor(logContainsString(logString), THIRTY_SECONDS));
     }
 
-    @Step
+    @Step("Количество элементов в саджесте > {0}")
     public void checkSuggestSizeOver(int i) {
         assertThat(mainPageObject.suggestList, hasSize(greaterThan(i)));
     }
 
-    @Step
+    @Step("Количество элементов в фидбэкменю > {0}")
     public void checkFeedbackMenuSizeOver(int i) {
         assertThat(mainPageObject.zenFeedbackMenu, hasSize(greaterThan(i)));
     }
 
-
-    @Step
+    @Step("Проверка цвета в историческом саджесте")
     public void checkColorInHistorySuggest(WebElement webElement, Color findColor1, Color findColor2 ){
 
         BufferedImage bufferedImage = makeScreenshotAll();
@@ -212,14 +208,14 @@ final class AppiumDriverSteps {
         assertThat(elementImage, hasColor(findColor));
     }
 
-    @Step
+    @Step("Общаяя проверка калдунщика погоды")
     public void checkingMeteoWizard() {
         assertThat("Нет калдунщика погоды", exists(mainPageObject.groupMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
         assertThat("Паника Часы в колдунщике погоды ", !elementFound(mainPageObject.groupMeteoWizard, "bro_common_omnibox_image"));
     }
 
-    @Step
+    @Step("Общаяя проверка калдунщика погоды")
     public void checkMeteoWizardHTML() {
         assertThat("Нет калдунщика погоды", exists(mainPageHTML.groupHTMLMeteoWizard.wizard));
         assertThat("В кондунщике нет температуры", mainPageObject.groupMeteoWizard.wizard.getText().contains("°C"));
@@ -234,7 +230,7 @@ final class AppiumDriverSteps {
     @Step("Реферер содержит в поле from текст = android")
     public void containtsAndroidInReferer(List<Request> requestList, String navigationUrl){
 
-        assertThat(requestList, withWaitFor(hasItem(both(hasURL(navigationUrl)).and(hasRefererQuery("android"))), TENSECONDS));
+        assertThat(requestList, withWaitFor(hasItem(both(hasURL(navigationUrl)).and(hasRefererQuery("android"))), TEN_SECONDS));
     }
 
     //Получаем текст из навигационника в омнибоксе
@@ -246,19 +242,19 @@ final class AppiumDriverSteps {
     @Step("Открытие ленты дзен")
     public void openZenStripe(){
         assertThat("Нет дзена", exists(mainPageObject.zenSrtipeGroup));
-        int TopY = getTopY(mainPageObject.zenSrtipeGroup) + 1;
-        int CenterX = getCenterX(mainPageObject.zenSrtipeGroup);
-        driver.swipe(CenterX, TopY, CenterX, TopY-130, 1000);
+        int topY = getTopY(mainPageObject.zenSrtipeGroup) + 1;
+        int centerX = getCenterX(mainPageObject.zenSrtipeGroup);
+        driver.swipe(centerX, topY, centerX, topY-130, 1000);
     }
 
     @Step("Ждём появления похожих")
-    public void waitSimlarVisible(){
+    public void waitSimilarVisible(){
         assertThat("Нет похожих", exists(mainPageObject.similarityText));
     }
 
     @Step("Ждём ответа ручки Similar")
-    public void waitSimlarResponce(List<Response> responseList, String similarUrl){
-        assertThat(responseList, withWaitFor(hasItem(hasResponceURL(similarUrl)), TENSECONDS));
+    public void waitSimilarResponce(List<Response> responseList, String similarUrl){
+        assertThat(responseList, withWaitFor(hasItem(hasResponceURL(similarUrl)), TEN_SECONDS));
     }
 
     @Step("Открытие меню отзыва на карточке дзена")
@@ -324,12 +320,12 @@ final class AppiumDriverSteps {
         return topY + height / 2;
     }
 
-    @Step
+    @Step("Тап назад(BACK)")
     public void tapBack(){
         driver.pressKeyCode(AndroidKeyCode.BACK);
     }
 
-    @Step
+    @Step("Взять скриншот элемента \"{0}\"")
     public BufferedImage getElementScreenshot(AndroidElement androidElement){
         BufferedImage bufferedImage = makeScreenshotAll();
 
@@ -340,28 +336,8 @@ final class AppiumDriverSteps {
         return bufferedImage.getSubimage(location.getX(), location.getY(), width, height);
     }
 
-    //Внутренние методы
-    private   BufferedImage makeScreenshotAll() {
-        //Make Screenshot
-        File screanShot = driver.getScreenshotAs(OutputType.FILE);
-        BufferedImage bufferedImage = null;
-        try {
-            bufferedImage = ImageIO.read(screanShot);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
-            return bufferedImage;
-        }
-    }
-
-    @Step("")//Заглушка нужна реализация
-    public int parsZenJsonResponce(){
-        return 0;
-    }
-
     //Степы для отладки
-    @Step
+    @Step("Отладка: падающий степ ")
     public void failedDebugStep() {
         assertTrue(false);
     }
@@ -369,5 +345,20 @@ final class AppiumDriverSteps {
     @Attachment(type = "image/png")
     public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
+
+    //Внутренние методы
+    private   BufferedImage makeScreenshotAll() {
+
+        File screenshot = driver.getScreenshotAs(OutputType.FILE);
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(screenshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return bufferedImage;
+        }
     }
 }

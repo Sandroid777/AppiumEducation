@@ -1,6 +1,5 @@
 package ru.sandroid.appiumeducations;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.Before;
@@ -52,7 +51,7 @@ public class T002_BrowserStarter_PageObjectTestOLD {
 
             try {
                 //Если не нахожу омнибокс значит появилось окно приветствия.
-                waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentry_bar));
+                waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentryBar));
             }
             catch (Exception s){
                 //закрываю экран приветствия если появился
@@ -60,10 +59,10 @@ public class T002_BrowserStarter_PageObjectTestOLD {
             }
 
             //тап в омнибокс
-            mainPageObject.sentry_bar.click();
+            mainPageObject.sentryBar.click();
 
             //ввожу cat в строку поиска
-            mainPageObject.omni_edittext.sendKeys("cat");
+            mainPageObject.omniTextEdit.sendKeys("cat");
 
             //нахожу 3 строку в саджесте и тапаю
             mainPageObject.suggestN3.click();

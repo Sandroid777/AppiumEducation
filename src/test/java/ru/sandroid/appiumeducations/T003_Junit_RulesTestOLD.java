@@ -80,15 +80,15 @@ public class T003_Junit_RulesTestOLD {
         WebDriverWait waitDriver = new WebDriverWait(driver, 10);
 
         try {
-            waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentry_bar));
+            waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.sentryBar));
         }
         catch (Exception s){
             waitDriver.until(ExpectedConditions.elementToBeClickable(mainPageObject.closeTutorialBtn)).click();
         }
 
-        mainPageObject.sentry_bar.click();
+        mainPageObject.sentryBar.click();
 
-        mainPageObject.omni_edittext.sendKeys("cat");
+        mainPageObject.omniTextEdit.sendKeys("cat");
 
         mainPageObject.suggestN3.click();
 

@@ -1,6 +1,7 @@
 package ru.sandroid.appiumeducations;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,19 +11,17 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Title("Урок 6.1 Групперовка элементов")
 public class T006_1_GroupPageObjectTest {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private AppiumDriverSteps steps;
 
     @Before
     public void setUp() throws Exception {
-        //настройка параметров
-        TestPreparation testPreparation= new TestPreparation();
-        driver = testPreparation.getDriver();
-        steps = testPreparation.getSteps();
+        driver = androidCustomRule.getDriver();
+        steps = new AppiumDriverSteps(driver);
     }
 
     @Rule
-    public TestRule watchman = new CustomRule(driver, steps);
+    public AndroidCustomRule androidCustomRule = new AndroidCustomRule();
 
     @Title("Использование групп PageObject проверка калдунщика погоды")
     @Test
@@ -33,6 +32,5 @@ public class T006_1_GroupPageObjectTest {
         steps.sendKeys("погода");
         steps.checkSuggestSizeOver(1);
         steps.checkingMeteoWizard();
-
         }
 }
